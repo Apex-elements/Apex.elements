@@ -1564,14 +1564,20 @@ function showToast() {
 setTimeout(() => { showToast(); setInterval(showToast, 18000); }, 5000);
 
 // ════════════════════════════════════════
-// VIDEO PLACEHOLDER
+// VIDEO PLACEHOLDER - FIXED FOR GITHUB MP4
 // ════════════════════════════════════════
 function openVideo() {
-  // Replace YOUR_VIDEO_ID with your YouTube video ID
-  const videoId = 'YOUR_VIDEO_ID';
+  const videoUrl = 'https://raw.githubusercontent.com/Apex-elements/Apex.elements/main/Landing%20Page%20MemoMax.mp4';
   const wrap = document.querySelector('.vid-placeholder');
-  wrap.innerHTML = `<iframe width="100%" height="420" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:block;border-radius:var(--r-2xl)"></iframe>`;
+  
+  // استخدام وسم video بدلاً من iframe
+  wrap.innerHTML = `
+    <video width="100%" height="auto" controls autoplay playsinline style="display:block; border-radius:var(--r-2xl); outline:none; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+      <source src="${videoUrl}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>`;
 }
+  
 </script>
 </body>
 </html>
