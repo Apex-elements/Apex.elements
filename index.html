@@ -1691,20 +1691,6 @@ function openVideo() {
 </script>
 
 
-  function switchImg(element) {
-  const mainImg = document.getElementById('main-product-img');
-  
-  // تغيير الصورة بسلاسة
-  mainImg.style.opacity = '0';
-  setTimeout(() => {
-    mainImg.src = element.src;
-    mainImg.style.opacity = '1';
-  }, 200);
-
-  // تحديث حالة الصور المصغرة
-  document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-  element.classList.add('active');
-}
-  
+ 
 </body>
 </html>
