@@ -2,6 +2,12 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+
+<!-- ═══ FAVICON ═══ -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23002040'/><text x='16' y='13' font-family='Arial' font-weight='900' font-size='8' fill='%23C9A84C' text-anchor='middle'>APEX</text><text x='16' y='24' font-family='Arial' font-weight='900' font-size='9' fill='%23e8c84a' text-anchor='middle'>MM</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23002040'/><text x='90' y='80' font-family='Arial' font-weight='900' font-size='44' fill='%23C9A84C' text-anchor='middle'>M</text><text x='90' y='130' font-family='Arial' font-weight='700' font-size='26' fill='%23e8c84a' text-anchor='middle'>MAX</text></svg>">
+<meta name="theme-color" content="#002040">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ═══ PRIMARY SEO ═══ -->
@@ -523,6 +529,73 @@ html[dir="ltr"] .ft-top{text-align:left}
 html[dir="ltr"] body{font-family:'Cairo',sans-serif}
 html[dir="ltr"] .hdr{flex-direction:row}
 html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
+
+/* ═══ PRODUCT DETAIL SECTION ═══ */
+.prod-detail-sec{background:var(--white)}
+.prod-detail-grid{display:grid;grid-template-columns:1fr;gap:52px;align-items:start;margin-top:60px}
+@media(min-width:900px){.prod-detail-grid{grid-template-columns:1fr 1fr}}
+.prod-infographic{border-radius:var(--r-2xl);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12);width:100%}
+.prod-infographic img{width:100%;display:block;border-radius:var(--r-2xl)}
+.prod-desc-box{display:flex;flex-direction:column;gap:20px}
+.prod-desc-text{font-size:15px;color:#555;line-height:1.9}
+.prod-benefits{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.pb-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--gray-50);border-radius:12px;border-right:3px solid var(--gold-500);font-size:14px;font-weight:700;color:var(--navy-900)}
+html[dir="ltr"] .pb-item{border-right:none;border-left:3px solid var(--gold-500)}
+.pb-item i{color:var(--gold-500);font-size:16px;flex-shrink:0}
+/* Usage Box */
+.usage-box{background:linear-gradient(135deg,var(--navy-950),var(--navy-800));border-radius:var(--r-xl);padding:28px;border:1px solid rgba(201,168,76,.2);position:relative;overflow:hidden;margin-top:4px}
+.usage-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(201,168,76,.1),transparent 60%);pointer-events:none}
+.usage-box-title{font-size:16px;font-weight:900;color:var(--gold-400);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.usage-steps{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+.us{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.85);line-height:1.5}
+.us-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-400);flex-shrink:0}
+.usage-note{margin-top:14px;padding:12px;background:rgba(201,168,76,.1);border-radius:10px;font-size:12px;color:var(--gold-400);font-weight:700;text-align:center;position:relative;z-index:1}
+
+/* ═══ COMPARISON SECTION ═══ */
+.comp-sec{background:var(--gray-100)}
+.comp-inner{max-width:900px;margin:0 auto}
+.comp-img-wrap{margin-top:48px;border-radius:var(--r-2xl);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.comp-img-wrap img{width:100%;display:block}
+.comp-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
+.cb{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:8px 18px;font-size:13px;font-weight:800;color:var(--navy-900)}
+.cb i{color:var(--green)}
+
+/* ═══ LOGO MANAGER MODAL ═══ */
+.lm-trigger{position:fixed;bottom:90px;left:16px;z-index:80;background:var(--navy-800);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:9px 14px;font-size:12px;font-weight:800;color:var(--gold-400);cursor:pointer;display:flex;align-items:center;gap:6px;transition:var(--ease);font-family:'Cairo',sans-serif;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.lm-trigger:hover{background:var(--navy-700);border-color:var(--gold-500)}
+@media(min-width:768px){.lm-trigger{bottom:30px}}
+.lm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.lm-overlay.open{opacity:1;pointer-events:all}
+.lm-modal{background:#fff;border-radius:var(--r-2xl);width:100%;max-width:700px;max-height:90vh;overflow-y:auto;position:relative}
+.lm-header{background:linear-gradient(135deg,var(--navy-950),var(--navy-800));padding:24px 28px;border-radius:var(--r-2xl) var(--r-2xl) 0 0;display:flex;align-items:center;justify-content:space-between}
+.lm-header h3{font-size:18px;font-weight:900;color:#fff}
+.lm-close{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--ease)}
+.lm-close:hover{background:rgba(255,255,255,.2)}
+.lm-body{padding:24px 28px}
+.lm-section-title{font-size:13px;font-weight:900;color:var(--navy-700);letter-spacing:2px;text-transform:uppercase;margin:20px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--gray-200)}
+.lm-section-title:first-child{margin-top:0}
+.lm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:500px){.lm-grid{grid-template-columns:repeat(3,1fr)}}
+.lm-slot{border:2px dashed var(--gray-200);border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:var(--ease);position:relative;overflow:hidden}
+.lm-slot:hover{border-color:var(--gold-500);background:rgba(201,168,76,.04)}
+.lm-slot.has-img{border-style:solid;border-color:var(--gold-500)}
+.lm-slot-preview{width:80px;height:50px;object-fit:contain;margin:0 auto 8px;display:block}
+.lm-slot-name{font-size:11px;font-weight:700;color:var(--navy-900);line-height:1.3}
+.lm-slot-status{font-size:10px;color:var(--gray-500);margin-top:3px}
+.lm-slot.has-img .lm-slot-status{color:var(--green);font-weight:700}
+.lm-slot input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.lm-slot-delete{position:absolute;top:6px;left:6px;width:22px;height:22px;border-radius:50%;background:#ef4444;border:none;color:#fff;font-size:11px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:2}
+html[dir="ltr"] .lm-slot-delete{left:auto;right:6px}
+.lm-slot.has-img .lm-slot-delete{display:flex}
+.lm-footer{padding:16px 28px 24px;display:flex;justify-content:flex-end;gap:10px}
+.lm-save-btn{background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--navy-950);font-weight:900;font-size:14px;padding:10px 24px;border-radius:50px;border:none;cursor:pointer;font-family:'Cairo',sans-serif;transition:var(--ease)}
+.lm-save-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px var(--gold-glow)}
+.lm-reset-btn{background:transparent;color:#ef4444;font-weight:700;font-size:13px;padding:10px 18px;border-radius:50px;border:2px solid #ef4444;cursor:pointer;font-family:'Cairo',sans-serif;transition:var(--ease)}
+.lm-reset-btn:hover{background:#fef2f2}
+.lm-info{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:12px 16px;font-size:12px;color:var(--navy-700);margin-bottom:16px;line-height:1.7}
+.lm-info i{color:var(--gold-500);margin-left:6px}
+html[dir="ltr"] .lm-info i{margin-left:0;margin-right:6px}
+
 </style>
 </head>
 <body>
@@ -920,6 +993,72 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
   </div>
 </section>
 
+
+<!-- ══ PRODUCT DETAIL & HOW TO USE ══ -->
+<section class="sec prod-detail-sec" id="product" aria-label="Product details">
+  <div class="cnt">
+    <div style="text-align:center">
+      <span class="slabel rev" data-i18n="prodLabel"></span>
+      <h2 class="sh rev d1" data-i18n="prodH2"></h2>
+      <div class="gdiv rev d2" style="margin:14px auto 0"></div>
+    </div>
+
+    <div class="prod-detail-grid">
+      <!-- Infographic image -->
+      <div class="prod-infographic rev">
+        <img src="product-benefits.png" alt="Memo Max benefits - فوائد ميمو ماكس" loading="lazy">
+      </div>
+
+      <!-- Text content -->
+      <div class="prod-desc-box rev d1">
+        <p class="prod-desc-text" data-i18n="prodDesc"></p>
+
+        <div class="prod-benefits">
+          <div class="pb-item"><i class="fa-solid fa-brain"></i> <span data-i18n="ben1"></span></div>
+          <div class="pb-item"><i class="fa-solid fa-moon"></i> <span data-i18n="ben2"></span></div>
+          <div class="pb-item"><i class="fa-solid fa-bolt"></i> <span data-i18n="ben3"></span></div>
+          <div class="pb-item"><i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="ben4"></span></div>
+          <div class="pb-item"><i class="fa-solid fa-lightbulb"></i> <span data-i18n="ben5"></span></div>
+        </div>
+
+        <!-- Usage Box -->
+        <div class="usage-box">
+          <div class="usage-box-title"><i class="fa-solid fa-capsules"></i> <span data-i18n="usageTitle"></span></div>
+          <div class="usage-steps">
+            <div class="us"><span class="us-dot"></span><span data-i18n="usage1"></span></div>
+            <div class="us"><span class="us-dot"></span><span data-i18n="usage2"></span></div>
+            <div class="us"><span class="us-dot"></span><span data-i18n="usage3"></span></div>
+          </div>
+          <div class="usage-note" data-i18n="usageNote"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARISON SECTION ══ -->
+<section class="sec comp-sec" id="comparison" aria-label="Product comparison">
+  <div class="cnt comp-inner">
+    <div style="text-align:center">
+      <span class="slabel rev" data-i18n="compLabel"></span>
+      <h2 class="sh rev d1" data-i18n="compH2"></h2>
+      <div class="gdiv rev d2" style="margin:14px auto 0"></div>
+      <p class="rev d3" style="margin-top:20px;font-size:15px;color:#666;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8" data-i18n="compDesc"></p>
+    </div>
+    <div class="comp-img-wrap rev">
+      <img src="comparison-table.png" alt="Memo Max vs competitors comparison - مقارنة ميمو ماكس" loading="lazy">
+    </div>
+    <div class="comp-badges rev">
+      <span class="cb"><i class="fa-solid fa-check-circle"></i> <span data-i18n="comp1"></span></span>
+      <span class="cb"><i class="fa-solid fa-check-circle"></i> <span data-i18n="comp2"></span></span>
+      <span class="cb"><i class="fa-solid fa-check-circle"></i> <span data-i18n="comp3"></span></span>
+      <span class="cb"><i class="fa-solid fa-check-circle"></i> <span data-i18n="comp4"></span></span>
+      <span class="cb"><i class="fa-solid fa-check-circle"></i> <span data-i18n="comp5"></span></span>
+      <span class="cb"><i class="fa-solid fa-check-circle"></i> <span data-i18n="comp6"></span></span>
+    </div>
+  </div>
+</section>
+
 <!-- PROBLEM -->
 <section class="sec prob-sec" aria-label="Problem and solution">
   <div class="cnt">
@@ -1141,6 +1280,134 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
   </div>
 </footer>
 
+
+<!-- ═══ LOGO MANAGER TRIGGER ═══ -->
+<button class="lm-trigger" onclick="openLogoManager()" aria-label="Manage logos">
+  <i class="fa-solid fa-image"></i> <span data-i18n="lmTrigger"></span>
+</button>
+
+<!-- ═══ LOGO MANAGER MODAL ═══ -->
+<div class="lm-overlay" id="lmOverlay" onclick="closeLMOnOverlay(event)" role="dialog" aria-modal="true" aria-label="Logo Manager">
+  <div class="lm-modal">
+    <div class="lm-header">
+      <h3><i class="fa-solid fa-image" style="color:var(--gold-400);margin-left:8px"></i> <span data-i18n="lmTitle"></span></h3>
+      <button class="lm-close" onclick="closeLogoManager()" aria-label="Close">✕</button>
+    </div>
+    <div class="lm-body">
+      <div class="lm-info">
+        <i class="fa-solid fa-circle-info"></i>
+        <span data-i18n="lmInfo"></span>
+      </div>
+
+      <!-- HOSPITALS -->
+      <div class="lm-section-title" data-i18n="lmHospTitle"></div>
+      <div class="lm-grid" id="lmHospGrid">
+        <div class="lm-slot" id="slot_hosp_zulekha">
+          <img class="lm-slot-preview" src="" alt="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 50%22><rect width=%2280%22 height=%2250%22 fill=%22%23f0f0f0%22/><text x=%2240%22 y=%2230%22 text-anchor=%22middle%22 font-size=%228%22 fill=%22%23999%22>Logo</text></svg>'">
+          <div class="lm-slot-name">Zulekha Hospital</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('hosp_zulekha',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('hosp_zulekha',this)">
+        </div>
+        <div class="lm-slot" id="slot_hosp_sgh">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Saudi German Hospital</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('hosp_sgh',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('hosp_sgh',this)">
+        </div>
+        <div class="lm-slot" id="slot_hosp_fakeeh">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Fakeeh University Hospital</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('hosp_fakeeh',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('hosp_fakeeh',this)">
+        </div>
+        <div class="lm-slot" id="slot_hosp_medcare">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Medcare Hospital</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('hosp_medcare',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('hosp_medcare',this)">
+        </div>
+        <div class="lm-slot" id="slot_hosp_medeor">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Medeor Hospital</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('hosp_medeor',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('hosp_medeor',this)">
+        </div>
+        <div class="lm-slot" id="slot_hosp_rashid">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Rashid Hospital</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('hosp_rashid',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('hosp_rashid',this)">
+        </div>
+        <div class="lm-slot" id="slot_hosp_burjeel">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Burjeel Day Surgery</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('hosp_burjeel',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('hosp_burjeel',this)">
+        </div>
+        <div class="lm-slot" id="slot_hosp_police">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Dubai Police Clinics</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('hosp_police',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('hosp_police',this)">
+        </div>
+      </div>
+
+      <!-- PARTNERS -->
+      <div class="lm-section-title" data-i18n="lmPartTitle"></div>
+      <div class="lm-grid" id="lmPartGrid">
+        <div class="lm-slot" id="slot_part_adnoc">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">ADNOC</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('part_adnoc',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('part_adnoc',this)">
+        </div>
+        <div class="lm-slot" id="slot_part_chamber">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Dubai Chamber</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('part_chamber',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('part_chamber',this)">
+        </div>
+        <div class="lm-slot" id="slot_part_ebwc">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Emirates Biz Women</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('part_ebwc',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('part_ebwc',this)">
+        </div>
+        <div class="lm-slot" id="slot_part_energy">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Energy Authority</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('part_energy',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('part_energy',this)">
+        </div>
+        <div class="lm-slot" id="slot_part_dbwc">
+          <img class="lm-slot-preview" src="" alt="">
+          <div class="lm-slot-name">Dubai Biz Women Council</div>
+          <div class="lm-slot-status" data-i18n="lmNoImg"></div>
+          <button class="lm-slot-delete" onclick="deleteLogoSlot('part_dbwc',event)" aria-label="Delete">✕</button>
+          <input type="file" accept="image/*" onchange="uploadLogo('part_dbwc',this)">
+        </div>
+      </div>
+
+    </div>
+    <div class="lm-footer">
+      <button class="lm-reset-btn" onclick="resetAllLogos()" data-i18n="lmReset"></button>
+      <button class="lm-save-btn" onclick="closeLogoManager()" data-i18n="lmDone"></button>
+    </div>
+  </div>
+</div>
+
 <!-- MOBILE STICKY -->
 <div class="mob-sticky" id="mobCta" role="complementary" aria-label="Quick buy">
   <div class="msp">400 AED</div>
@@ -1270,6 +1537,37 @@ const T = {
     guarSmall:'منتجنا موثوق في 80+ موقع بالإمارات وأكثر من 8 دول. 430,000 عميل راضٍ لا يمكن أن يكونوا مخطئين.',
     hospitals:'مستشفى',
     mobileBtn:'اطلب الآن ← COD متاح',
+
+    prodLabel:'تعرف على المنتج',
+    prodH2:'ميمو ماكس <span class="gold">صحة الذاكرة والمخ</span>',
+    prodDesc:'<strong>MEMO MAX</strong> منتج عضوي استثنائي مصمم لدعم صحة الدماغ وتحسين التواصل بين الناقلات العصبية، مما يساعد على تحسين الذاكرة وزيادة التركيز. كما يقلل من خطر الإصابة بأمراض كالزهايمر ويخفف أعراض الشيخوخة المبكرة. تركيبته الفعّالة تعزز كفاءة الأفراد في أداء مهامهم اليومية بجودة عالية، وتدعم الطلاب وغيرهم في الاستيعاب والنشاط الذهني.',
+    ben1:'مزاج أفضل ودعم الصفاء الذهني',
+    ben2:'جودة نوم أعمق وأكثر راحة',
+    ben3:'دعم سريع المفعول للطاقة',
+    ben4:'تركيز متزايد وذاكرة أقوى',
+    ben5:'وظيفة معرفية معززة للأداء اليومي',
+    usageTitle:'طريقة الاستخدام',
+    usage1:'تناول 2-3 كبسولات يومياً',
+    usage2:'بعد الأكل بساعة واحدة',
+    usage3:'مع 200 مل من الماء',
+    usageNote:'الخيار المثالي للحفاظ على رشاقة الذهن وتعزيز جودة حياتك اليومية',
+    compLabel:'لماذا Memo Max الأفضل؟',
+    compH2:'الأداء المثالي مقابل <span class="gold">العلامات التجارية الأخرى</span>',
+    compDesc:'عندما تقارن، تختار ميمو ماكس. المنتج الوحيد الذي يجمع كل معايير الجودة في علبة واحدة.',
+    comp1:'صحة الدماغ والأداء',
+    comp2:'صنع في الولايات المتحدة',
+    comp3:'خالٍ من الغلوتين',
+    comp4:'طبيعي 100%',
+    comp5:'اختبار طرف ثالث',
+    comp6:'الملف الشخصي الكامل',
+    lmTrigger:'تعديل اللوجوهات',
+    lmTitle:'مدير اللوجوهات',
+    lmInfo:'انقر على أي خانة لرفع صورة اللوجو. الصور تُحفظ تلقائياً في المتصفح.',
+    lmHospTitle:'لوجوهات المستشفيات',
+    lmPartTitle:'لوجوهات الشركاء',
+    lmNoImg:'انقر لرفع صورة',
+    lmReset:'إعادة تعيين الكل',
+    lmDone:'حفظ وإغلاق',
     disclaimer:'<strong>إخلاء مسؤولية طبي:</strong> المعلومات في هذا الموقع لأغراض تثقيفية فقط ولا تحل محل الاستشارة الطبية المتخصصة. المكملات الغذائية ليست مصممة لتشخيص أو علاج أي مرض. يرجى استشارة طبيبك قبل البدء. المورد الرسمي: Organic Elements UAE.<br><br>&copy; 2025 Apex Elements. جميع الحقوق محفوظة.'
   },
 
@@ -1388,6 +1686,37 @@ const T = {
     guarSmall:'Our product is trusted at 80+ UAE locations and across 8 countries. 430,000 satisfied customers can\'t be wrong.',
     hospitals:'Hospitals',
     mobileBtn:'Order Now ← COD Available',
+
+    prodLabel:'About the Product',
+    prodH2:'Memo Max <span class="gold">Memory & Brain Health</span>',
+    prodDesc:'<strong>MEMO MAX</strong> is an exceptional organic product designed to support brain health and improve communication between neurotransmitters, helping improve memory and increase focus. It also reduces the risk of diseases such as Alzheimer's and alleviates symptoms of early aging. Its effective formula enhances individuals' efficiency in daily tasks and supports students and others in comprehension and mental activity.',
+    ben1:'Better mood and mental clarity support',
+    ben2:'Deeper, more restful sleep quality',
+    ben3:'Fast-acting energy support',
+    ben4:'Increasing focus and stronger memory',
+    ben5:'Enhanced cognitive function for daily performance',
+    usageTitle:'How to Use',
+    usage1:'Take 2-3 capsules daily',
+    usage2:'One hour after meals',
+    usage3:'With 200ml of water',
+    usageNote:'The perfect choice to maintain mental agility and enhance your daily life quality',
+    compLabel:'Why Memo Max is the Best?',
+    compH2:'Peak Performance vs <span class="gold">Other Brands</span>',
+    compDesc:'When you compare, you choose Memo Max. The only product that combines all quality standards in one bottle.',
+    comp1:'Brain Health & Performance',
+    comp2:'Made in the USA',
+    comp3:'Gluten Free',
+    comp4:'100% Natural',
+    comp5:'Third Party Tested',
+    comp6:'Full Ingredient Profile',
+    lmTrigger:'Edit Logos',
+    lmTitle:'Logo Manager',
+    lmInfo:'Click any slot to upload a logo image. Images are automatically saved in the browser.',
+    lmHospTitle:'Hospital Logos',
+    lmPartTitle:'Partner Logos',
+    lmNoImg:'Click to upload',
+    lmReset:'Reset All',
+    lmDone:'Save & Close',
     disclaimer:'<strong>Medical Disclaimer:</strong> The information on this website is for educational purposes only and does not replace specialized medical advice. Dietary supplements are not designed to diagnose, treat, or prevent any disease. Please consult your doctor before starting. Official supplier: Organic Elements UAE.<br><br>&copy; 2025 Apex Elements. All rights reserved.'
   }
 };
@@ -1569,6 +1898,176 @@ function openVideo() {
   const wrap = document.querySelector('.vid-placeholder');
   wrap.innerHTML = `<iframe width="100%" height="420" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:block;border-radius:var(--r-2xl)"></iframe>`;
 }
+
+// ════════════════════════════════════════
+// LOGO MANAGER
+// ════════════════════════════════════════
+
+// Map: slot key → hospital/partner card selector
+const LOGO_MAP = {
+  hosp_zulekha:  '.hosp-card:nth-of-type(1)',
+  hosp_sgh:      '.hosp-card:nth-of-type(2)',
+  hosp_fakeeh:   '.hosp-card:nth-of-type(3)',
+  hosp_medcare:  '.hosp-card:nth-of-type(4)',
+  hosp_medeor:   '.hosp-card:nth-of-type(5)',
+  hosp_rashid:   '.hosp-card:nth-of-type(6)',
+  hosp_burjeel:  '.hosp-card:nth-of-type(7)',
+  hosp_police:   '.hosp-card:nth-of-type(8)',
+  part_adnoc:    '.plogo:nth-of-type(1)',
+  part_chamber:  '.plogo:nth-of-type(2)',
+  part_ebwc:     '.plogo:nth-of-type(3)',
+  part_energy:   '.plogo:nth-of-type(4)',
+  part_dbwc:     '.plogo:nth-of-type(5)',
+};
+
+function openLogoManager() {
+  loadSavedLogos();
+  document.getElementById('lmOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLogoManager() {
+  document.getElementById('lmOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeLMOnOverlay(e) {
+  if (e.target === document.getElementById('lmOverlay')) closeLogoManager();
+}
+
+function uploadLogo(key, input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const dataUrl = e.target.result;
+    try { localStorage.setItem('apex_logo_' + key, dataUrl); } catch(err) {}
+    applyLogo(key, dataUrl);
+    updateSlotUI(key, dataUrl);
+  };
+  reader.readAsDataURL(file);
+}
+
+function applyLogo(key, dataUrl) {
+  // Apply to hospital cards
+  if (key.startsWith('hosp_')) {
+    const idx = ['hosp_zulekha','hosp_sgh','hosp_fakeeh','hosp_medcare','hosp_medeor','hosp_rashid','hosp_burjeel','hosp_police'].indexOf(key);
+    if (idx >= 0) {
+      const cards = document.querySelectorAll('.hosp-card');
+      if (cards[idx]) {
+        const wrap = cards[idx].querySelector('.hosp-logo-wrap');
+        if (wrap) {
+          wrap.innerHTML = `<img src="${dataUrl}" style="max-width:100%;max-height:100%;object-fit:contain;filter:none;opacity:1" alt="logo">`;
+          wrap.style.filter = 'none';
+          wrap.style.opacity = '1';
+        }
+      }
+    }
+  }
+  // Apply to partner logos
+  if (key.startsWith('part_')) {
+    const idx = ['part_adnoc','part_chamber','part_ebwc','part_energy','part_dbwc'].indexOf(key);
+    if (idx >= 0) {
+      const logos = document.querySelectorAll('.plogo');
+      if (logos[idx]) {
+        const svg = logos[idx].querySelector('svg.plogo-svg');
+        if (svg) {
+          const img = document.createElement('img');
+          img.src = dataUrl;
+          img.className = 'plogo-svg';
+          img.style.objectFit = 'contain';
+          svg.parentNode.replaceChild(img, svg);
+        }
+      }
+    }
+  }
+}
+
+function updateSlotUI(key, dataUrl) {
+  const slot = document.getElementById('slot_' + key);
+  if (!slot) return;
+  const preview = slot.querySelector('.lm-slot-preview');
+  if (preview) { preview.src = dataUrl; preview.onerror = null; }
+  slot.classList.add('has-img');
+  const status = slot.querySelector('.lm-slot-status');
+  if (status) {
+    const lang = document.documentElement.lang;
+    status.textContent = lang === 'en' ? '✓ Uploaded' : '✓ تم الرفع';
+    status.style.color = '#22c55e';
+  }
+}
+
+function deleteLogoSlot(key, event) {
+  event.preventDefault();
+  event.stopPropagation();
+  try { localStorage.removeItem('apex_logo_' + key); } catch(e) {}
+  const slot = document.getElementById('slot_' + key);
+  if (slot) {
+    slot.classList.remove('has-img');
+    const preview = slot.querySelector('.lm-slot-preview');
+    if (preview) preview.src = '';
+    const status = slot.querySelector('.lm-slot-status');
+    if (status) {
+      const lang = document.documentElement.lang;
+      status.textContent = lang === 'en' ? 'Click to upload' : 'انقر لرفع صورة';
+      status.style.color = '';
+    }
+  }
+  // Restore original SVG for this slot
+  restoreDefaultLogo(key);
+}
+
+function restoreDefaultLogo(key) {
+  // Reload page would restore, but for live restore we re-apply the original SVG
+  // For simplicity, show a page reload suggestion or just clear the image
+  if (key.startsWith('hosp_')) {
+    const idx = ['hosp_zulekha','hosp_sgh','hosp_fakeeh','hosp_medcare','hosp_medeor','hosp_rashid','hosp_burjeel','hosp_police'].indexOf(key);
+    if (idx >= 0) {
+      const cards = document.querySelectorAll('.hosp-card');
+      if (cards[idx]) {
+        const wrap = cards[idx].querySelector('.hosp-logo-wrap');
+        if (wrap) {
+          wrap.innerHTML = '<svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg"><text x="60" y="25" font-family="Arial" font-size="11" fill="#999" text-anchor="middle">Logo</text></svg>';
+          wrap.style.filter = 'brightness(0) invert(1)';
+          wrap.style.opacity = '0.75';
+        }
+      }
+    }
+  }
+}
+
+function resetAllLogos() {
+  const lang = document.documentElement.lang;
+  const msg = lang === 'en' ? 'Reset all logos to defaults?' : 'إعادة تعيين جميع اللوجوهات؟';
+  if (!confirm(msg)) return;
+  Object.keys(LOGO_MAP).forEach(key => {
+    try { localStorage.removeItem('apex_logo_' + key); } catch(e) {}
+    const slot = document.getElementById('slot_' + key);
+    if (slot) {
+      slot.classList.remove('has-img');
+      const preview = slot.querySelector('.lm-slot-preview');
+      if (preview) preview.src = '';
+      restoreDefaultLogo(key);
+    }
+  });
+}
+
+function loadSavedLogos() {
+  Object.keys(LOGO_MAP).forEach(key => {
+    try {
+      const saved = localStorage.getItem('apex_logo_' + key);
+      if (saved) {
+        applyLogo(key, saved);
+        updateSlotUI(key, saved);
+      }
+    } catch(e) {}
+  });
+}
+
+// Apply saved logos on page load
+document.addEventListener('DOMContentLoaded', loadSavedLogos);
+setTimeout(loadSavedLogos, 300); // Fallback
+
 </script>
 </body>
 </html>
