@@ -38,6 +38,10 @@
 <meta name="twitter:description" content="الجنكو بيلوبا + الجنسنغ الأحمر. معتمد FDA وGMPc. 430,000 عميل راضٍ في الإمارات.">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/me212.jpg">
 
+  <!-- ═══ Favicon ═══ -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23002040'/%3E%3Ccircle cx='16' cy='14' r='8' fill='none' stroke='%23C9A84C' stroke-width='2'/%3E%3Ctext x='16' y='29' font-family='Arial' font-weight='900' font-size='7' fill='%23e8c84a' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#002040">
+  
 <!-- ═══ GOOGLE SEARCH CONSOLE ═══ -->
 <meta name="google-site-verification" content="bptSxwKOktRq1eRzttC1j7jCCXLiLMJuyh94eVuzmLs">
 
@@ -200,8 +204,9 @@ h1 .acc{color:var(--gold-400);font-family:'Cormorant Garamond',serif;font-style:
 .pcard{position:relative;z-index:1;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(201,168,76,.2);border-radius:28px;padding:8px;backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(201,168,76,.1);animation:flt 6s ease-in-out infinite}
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .pcard .main-img{border-radius:22px;width:100%;max-width:380px;height:400px;object-fit:cover}
-.img-thumbs{display:flex;gap:8px;margin-top:10px;padding:0 4px}
-.thumb{width:72px;height:60px;object-fit:cover;border-radius:10px;border:2px solid transparent;cursor:pointer;opacity:.65;transition:var(--ease);flex-shrink:0}
+.img-thumbs{display:flex;gap:8px;margin-top:10px;padding:0 4px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.img-thumbs::-webkit-scrollbar{display:none}
+.thumb{width:72px;height:60px;object-fit:cover;border-radius:10px;border:2px solid transparent;cursor:pointer;opacity:.65;transition:var(--ease);scroll-snap-align:start;flex-shrink:0}
 .thumb.active,.thumb:hover{border-color:var(--gold-500);opacity:1}
 .fbadge{position:absolute;background:rgba(0,16,31,.92);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:9px 14px;backdrop-filter:blur(10px);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap;z-index:2}
 .fbadge .fbi{color:var(--gold-400);font-size:15px}
@@ -589,7 +594,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
 
     <div class="hero-vis">
       <div class="pcard">
-        <img id="main-product-img" class="main-img" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png" alt="Memo Max Premium Brain Supplement - مكمل ميمو ماكس للتركيز" loading="eager" width="380" height="400">
+        <img id="main-product-img" class="main-img" style="touch-action:pinch-zoom;cursor:zoom-in;" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png" alt="Memo Max Premium Brain Supplement - مكمل ميمو ماكس للتركيز" loading="eager" width="380" height="400">
         <div class="img-thumbs" role="list" aria-label="Product images">
           <img class="thumb active" role="listitem" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png" onclick="switchImg(this,'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png')" alt="Memo Max view 1" loading="lazy">
           <img class="thumb" role="listitem" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new2.png" onclick="switchImg(this,'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new2.png')" alt="Memo Max view 2" loading="lazy">
