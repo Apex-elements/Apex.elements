@@ -273,6 +273,8 @@ html[dir="ltr"] .bai:last-child{border-right:none}
 .rbad{background:rgba(231,76,60,.1);color:#c0392b}
 .rgood{background:rgba(201,168,76,.15);color:var(--gold-400)}
 
+  <div style="height:4px;background:linear-gradient(90deg,var(--gold-400),var(--gold-600));opacity:.3"></div>
+  
 /* SCIENCE */
 .sci-sec{background:var(--white)}
 .sci-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;margin-top:60px}
@@ -334,7 +336,8 @@ html[dir="ltr"] .verified-dot{margin-right:0;margin-left:5px}
 /* ═══ PARTNER LOGOS ═══ */
 .partner-row{margin-top:56px;text-align:center}
 .partner-label{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:3px;font-weight:700;margin-bottom:28px;display:block}
-.partner-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px}
+.partner-logos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:640px){.partner-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}}
 .plogo{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:10px;transition:var(--ease);min-width:140px}
 .plogo:hover{background:rgba(255,255,255,.1);border-color:rgba(201,168,76,.35);transform:translateY(-2px)}
 .plogo-svg{width:32px;height:32px;flex-shrink:0}
@@ -907,7 +910,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
       <h2 class="sh rev d1" data-i18n="prodH2"></h2>
       <div class="gdiv rev d2" style="margin:14px auto 0"></div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr;gap:48px;align-items:start;margin-top:56px" class="rev">
+    <div style="display:grid;grid-template-columns:1fr;gap:32px;align-items:start;margin-top:40px" class="rev">
       <div style="border-radius:var(--r-2xl);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12)">
         <img src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/memomax%20performance%20arabic.png" alt="Memo Max benefits" style="width:100%;display:block" loading="lazy">
       </div>
@@ -964,6 +967,8 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
   </div>
 </section>
 
+  <div style="height:4px;background:linear-gradient(90deg,var(--gold-400),var(--gold-600));opacity:.3"></div>
+  
 <!-- COMPARISON -->
 <section class="sec" style="background:var(--gray-100)">
   <div class="cnt" style="max-width:900px;margin:0 auto">
@@ -976,7 +981,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
     <div style="margin-top:48px;border-radius:var(--r-2xl);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12)" class="rev">
       <img src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/memomax%20table%20arabic.png" alt="Memo Max vs competitors" style="width:100%;display:block" loading="lazy">
     </div>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px" class="rev">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px" class="rev">
       <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--gray-200);border-radius:50px;padding:8px 18px;font-size:13px;font-weight:800;color:var(--navy-900)"><i class="fa-solid fa-check-circle" style="color:var(--green)"></i><span data-i18n="comp1"></span></span>
       <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--gray-200);border-radius:50px;padding:8px 18px;font-size:13px;font-weight:800;color:var(--navy-900)"><i class="fa-solid fa-check-circle" style="color:var(--green)"></i><span data-i18n="comp2"></span></span>
       <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--gray-200);border-radius:50px;padding:8px 18px;font-size:13px;font-weight:800;color:var(--navy-900)"><i class="fa-solid fa-check-circle" style="color:var(--green)"></i><span data-i18n="comp3"></span></span>
@@ -986,6 +991,8 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
     </div>
   </div>
 </section>
+  
+  <div style="height:4px;background:linear-gradient(90deg,var(--gold-400),var(--gold-600));opacity:.3"></div>
   
 <!-- PROBLEM -->
 <section class="sec prob-sec" aria-label="Problem and solution">
