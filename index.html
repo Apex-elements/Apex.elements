@@ -1187,8 +1187,22 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
           <li><i class="fa-solid fa-hand-holding-dollar"></i> <span data-i18n="f4"></span></li>
           <li><i class="fa-solid fa-leaf"></i> <span data-i18n="f5"></span></li>
         </ul>
-        <a href="https://buy.stripe.com/14A14mbED0UYdy72fS3ks02" class="buy-btn" aria-label="Buy now online"><i class="fa-brands fa-apple"></i> <span data-i18n="buyOnlineBtn"></span></a>
-        <a href="https://wa.me/973045464" target="_blank" rel="noopener" class="cod-btn" aria-label="Cash on delivery"><i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span></a>
+        <a href="https://buy.stripe.com/14A14mbED0UYdy72fS3ks02" 
+   onclick="gtag('event', 'begin_checkout', {'event_category': 'ecommerce', 'event_label': 'Stripe'});" 
+   class="buy-btn" 
+   aria-label="Buy now online">
+   <i class="fa-brands fa-apple"></i> <span data-i18n="buyOnlineBtn"></span>
+</a>
+        
+        <a href="https://wa.me/971503045464" 
+   target="_blank" 
+   rel="noopener" 
+   onclick="gtag('event', 'generate_lead', {'event_category': 'ecommerce', 'event_label': 'WhatsApp COD'});" 
+   class="cod-btn" 
+   aria-label="Cash on delivery">
+   <i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span>
+</a>
+        
         <div class="pi" aria-label="Accepted payment methods">
           <i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i>
           <i class="fa-brands fa-cc-apple-pay"></i><i class="fa-brands fa-stripe"></i>
