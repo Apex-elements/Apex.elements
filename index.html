@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+<script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=d.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=d.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
 
+    ttq.load('D7CO06BC77U8VHIRUKG0'); // ضع هنا رقم البيكسل الخاص بك
+    ttq.page();
+
+    // هذا الجزء هو ما طلبته تيك توك في الصورة لرفع جودة البيانات
+    ttq.identify({
+      "external_id": "user_" + Math.floor(Math.random() * 1000000) // معرف عشوائي لتمييز المتصفح
+    });
+  }(window, document, 'ttq');
+</script>
+    
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -1330,23 +1343,33 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
           <li><i class="fa-solid fa-hand-holding-dollar"></i> <span data-i18n="f4"></span></li>
           <li><i class="fa-solid fa-leaf"></i> <span data-i18n="f5"></span></li>
         </ul>
-       <a href="https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03" 
+          
+<a href="https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03" 
    target="_blank"
    rel="noopener"
-   onclick="gtag('event', 'begin_checkout', {'event_category': 'ecommerce', 'event_label': 'Stripe'}); ttq.track('InitiateCheckout', {'contents': [{'content_name': 'MemoMax', 'price': 380}], 'value': 380, 'currency': 'AED'}); fbq('trackCustom', 'Stripe_Click');" 
-   class="buy-btn" 
-   aria-label="Buy now online">
+   onclick="
+     gtag('event', 'begin_checkout', {'event_category': 'ecommerce', 'event_label': 'Stripe'});
+     ttq.track('InitiateCheckout', {
+        'contents': [{'content_name': 'MemoMax', 'price': 380}],
+        'value': 380,
+        'currency': 'AED'
+     }); 
+     fbq('trackCustom', 'Stripe_Order_Initiated');" 
+   class="buy-btn">
    <i class="fa-brands fa-apple"></i> <span data-i18n="buyOnlineBtn"></span>
 </a>
-        
-<a href="https://wa.me/971503045464?text=مرحباً%20Apex%20Elements%2C%20أود%20طلب%20منتج%20MemoMax%20بخصم%20379.99%20درهم" 
+
+<a href="https://wa.me/971503045464?text=طلب_منتج_MemoMax" 
    target="_blank" 
    rel="noopener" 
-   onclick="gtag('event', 'generate_lead', {'event_category': 'ecommerce', 'event_label': 'WhatsApp COD'}); ttq.track('Contact'); fbq('trackCustom', 'WhatsApp_Click');" 
-   class="cod-btn" 
-   aria-label="Cash on delivery">
+   onclick="
+     gtag('event', 'generate_lead', {'event_category': 'ecommerce', 'event_label': 'WhatsApp COD'});
+     ttq.track('Contact'); 
+     fbq('trackCustom', 'WhatsApp_Lead_Contact');" 
+   class="cod-btn">
    <i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span>
 </a>
+          
         <div class="pi" aria-label="Accepted payment methods">
           <i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i>
           <i class="fa-brands fa-cc-apple-pay"></i><i class="fa-brands fa-stripe"></i>
