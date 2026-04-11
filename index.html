@@ -2030,9 +2030,13 @@ function tick() {
   if (!el) return;
   let end;
   try {
-    const s = localStorage.getItem('apexEnd');
-    end = s ? parseInt(s) : Date.now() + 86400000;
-    if (!s) localStorage.setItem('apexEnd', end);
+    const TIMER_KEY = 'apexEnd_v2';
+const s = localStorage.getItem(TIMER_KEY);
+end = s ? parseInt(s) : Date.now() + 172800000; // 48 ساعة
+if (!s || parseInt(s) < Date.now()) {
+  end = Date.now() + 172800000;
+  localStorage.setItem(TIMER_KEY, end);
+}
   } catch(e) { end = Date.now() + 86400000; }
   const d = Math.max(0, end - Date.now());
   const h = String(Math.floor(d / 3600000)).padStart(2,'0');
