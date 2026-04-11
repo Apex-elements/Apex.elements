@@ -1375,22 +1375,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
 <a href="https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03" 
    target="_blank"
    rel="noopener"
-   onclick="
-     // جوجل
-     gtag('event', 'begin_checkout', {'value': 380, 'currency': 'AED'});
-     // تيك توك - إضافة المعايير الناقصة لإزالة التنبيه الأصفر
-     ttq.track('InitiateCheckout', {
-        'contents': [{
-            'content_id': 'memo_001',
-            'content_name': 'MemoMax_Supplement',
-            'content_type': 'product',
-            'price': 380
-        }],
-        'value': 380,
-        'currency': 'AED'
-     }); 
-     // فيسبوك - استخدام حدث مخصص لتجنب الحظر
-     fbq('trackCustom', 'Apex_Stripe_Click', {'value': 380, 'currency': 'AED'});" 
+   onclick="gtag('event','begin_checkout',{'event_category':'ecommerce','event_label':'Stripe'}); ttq.track('InitiateCheckout',{'content_type':'product','content_id':'MEMOMAX-001','value':379.99,'currency':'AED'}); fbq('track','InitiateCheckout',{'value':379.99,'currency':'AED'});"
    class="buy-btn">
    <i class="fa-brands fa-apple"></i> <span data-i18n="buyOnlineBtn"></span>
 </a>
@@ -1398,17 +1383,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
 <a href="https://wa.me/971503045464?text=طلب_منتج_MemoMax" 
    target="_blank" 
    rel="noopener" 
-   onclick="
-     // جوجل
-     gtag('event', 'generate_lead', {'value': 380, 'currency': 'AED'});
-     // تيك توك
-     ttq.track('Contact', {
-        'contents': [{'content_name': 'MemoMax_COD'}],
-        'value': 380,
-        'currency': 'AED'
-     }); 
-     // فيسبوك
-     fbq('trackCustom', 'Apex_WhatsApp_Lead');" 
+   onclick="gtag('event','generate_lead',{'event_category':'ecommerce','event_label':'WhatsApp COD'}); ttq.track('Contact',{'content_type':'product','content_id':'MEMOMAX-001'}); fbq('track','Lead');"
    class="cod-btn">
    <i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span>
 </a>
