@@ -1348,13 +1348,21 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
    target="_blank"
    rel="noopener"
    onclick="
-     gtag('event', 'begin_checkout', {'event_category': 'ecommerce', 'event_label': 'Stripe'});
+     // جوجل
+     gtag('event', 'begin_checkout', {'value': 380, 'currency': 'AED'});
+     // تيك توك - إضافة المعايير الناقصة لإزالة التنبيه الأصفر
      ttq.track('InitiateCheckout', {
-        'contents': [{'content_name': 'MemoMax', 'price': 380}],
+        'contents': [{
+            'content_id': 'memo_001',
+            'content_name': 'MemoMax_Supplement',
+            'content_type': 'product',
+            'price': 380
+        }],
         'value': 380,
         'currency': 'AED'
      }); 
-     fbq('trackCustom', 'Stripe_Order_Initiated');" 
+     // فيسبوك - استخدام حدث مخصص لتجنب الحظر
+     fbq('trackCustom', 'Apex_Stripe_Click', {'value': 380, 'currency': 'AED'});" 
    class="buy-btn">
    <i class="fa-brands fa-apple"></i> <span data-i18n="buyOnlineBtn"></span>
 </a>
@@ -1363,9 +1371,16 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
    target="_blank" 
    rel="noopener" 
    onclick="
-     gtag('event', 'generate_lead', {'event_category': 'ecommerce', 'event_label': 'WhatsApp COD'});
-     ttq.track('Contact'); 
-     fbq('trackCustom', 'WhatsApp_Lead_Contact');" 
+     // جوجل
+     gtag('event', 'generate_lead', {'value': 380, 'currency': 'AED'});
+     // تيك توك
+     ttq.track('Contact', {
+        'contents': [{'content_name': 'MemoMax_COD'}],
+        'value': 380,
+        'currency': 'AED'
+     }); 
+     // فيسبوك
+     fbq('trackCustom', 'Apex_WhatsApp_Lead');" 
    class="cod-btn">
    <i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span>
 </a>
