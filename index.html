@@ -257,14 +257,26 @@ h1 .acc{color:var(--gold-400);font-family:'Cormorant Garamond',serif;font-style:
 /* HERO VISUAL */
 
   .hero-vis{position:relative;display:flex;justify-content:center}
-.hero-vis::before{content:'';position:absolute;inset:-20px;background:radial-gradient(ellipse at center,rgba(201,168,76,.15) 0%,transparent 70%);z-index:0}
-.pcard{position:relative;z-index:1;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(201,168,76,.2);border-radius:28px;padding:8px;backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(201,168,76,.1);animation:flt 6s ease-in-out infinite}
-@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.pcard .main-img{border-radius:22px;width:100%;max-width:380px;height:400px;object-fit:cover}
-.img-thumbs{display:flex;gap:8px;margin-top:10px;padding:0 4px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.img-thumbs::-webkit-scrollbar{display:none}
-.thumb{width:72px;height:60px;object-fit:cover;border-radius:10px;border:2px solid transparent;cursor:pointer;opacity:.65;transition:var(--ease);scroll-snap-align:start;flex-shrink:0}
-.thumb.active,.thumb:hover{border-color:var(--gold-500);opacity:1}
+/* ═══ GALLERY REDESIGN ═══ */
+.gallery-wrap{position:relative;width:100%;max-width:420px;margin:0 auto}
+.gallery-main{position:relative;border-radius:24px;overflow:hidden;background:var(--navy-900);aspect-ratio:4/5;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.gallery-main img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .4s ease,transform .4s ease}
+.gallery-main img.switching{opacity:0;transform:scale(1.03)}
+.gallery-badge{position:absolute;top:14px;right:14px;background:rgba(0,16,31,.85);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:5px 10px;font-size:11px;font-weight:800;color:var(--gold-400);backdrop-filter:blur(8px);z-index:3}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(0,16,31,.8);border:1px solid rgba(201,168,76,.3);color:var(--gold-400);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:var(--ease);font-size:13px}
+.gallery-nav:hover{background:var(--gold-500);color:var(--navy-950);border-color:var(--gold-500)}
+.gallery-nav.prev{right:12px}
+.gallery-nav.next{left:12px}
+.gallery-dots{display:flex;justify-content:center;gap:6px;margin-top:12px;flex-wrap:wrap}
+.gallery-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:var(--ease);flex-shrink:0}
+.gallery-dot.active{background:var(--gold-400);width:20px;border-radius:4px}
+.gallery-thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px}
+.gallery-thumbs::-webkit-scrollbar{display:none}
+.gallery-thumb{width:64px;height:52px;object-fit:cover;border-radius:10px;border:2px solid transparent;cursor:pointer;opacity:.55;transition:var(--ease);scroll-snap-align:start;flex-shrink:0}
+.gallery-thumb.active,.gallery-thumb:hover{border-color:var(--gold-500);opacity:1}
+/* Swipe hint */
+.swipe-hint{text-align:center;font-size:10px;color:rgba(255,255,255,.3);margin-top:6px;letter-spacing:.5px}
+@media(min-width:768px){.swipe-hint{display:none}}
 .fbadge{position:absolute;background:rgba(0,16,31,.92);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:9px 14px;backdrop-filter:blur(10px);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap;z-index:2}
 .fbadge .fbi{color:var(--gold-400);font-size:15px}
 .fb1{top:16px;right:-14px;animation:fl2 7s ease-in-out infinite}
@@ -653,24 +665,40 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
     </div>
 
     <div class="hero-vis">
-      <div class="pcard">
-        <img id="main-product-img" class="main-img" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png" alt="Memo Max Premium Brain Supplement - مكمل ميمو ماكس للتركيز" loading="eager" width="380" height="400">
-        <div class="img-thumbs" role="list" aria-label="Product images">
-          <img class="thumb active" role="listitem" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png" onclick="switchImg(this,'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png')" alt="Memo Max view 1" loading="lazy">
-          <img class="thumb" role="listitem" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/memo-new4.png" onclick="switchImg(this,'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new2.png')" alt="Memo Max view 2" loading="lazy">
-          <img class="thumb" role="listitem" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/me21.png" onclick="switchImg(this,'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/me21.png')" alt="Memo Max view 3" loading="lazy">
-          <img class="thumb" role="listitem" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/memo-new5.png" onclick="switchImg(this,'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/memo112.png')" alt="Memo Max view 4" loading="lazy">
-        </div>
-        <div class="fbadge fb1">
-          <i class="fa-solid fa-brain fbi"></i>
-          <div><div style="font-size:11px;color:var(--gold-400);font-weight:900" data-i18n="fb1t"></div><div style="font-size:10px;color:rgba(255,255,255,.6)" data-i18n="fb1s"></div></div>
-        </div>
-        <div class="fbadge fb2">
-          <i class="fa-solid fa-leaf fbi"></i>
-          <div><div style="font-size:11px;color:var(--gold-400);font-weight:900" data-i18n="fb2t"></div><div style="font-size:10px;color:rgba(255,255,255,.6)" data-i18n="fb2s"></div></div>
-        </div>
+  <div class="gallery-wrap" id="productGallery">
+    <!-- الصورة الرئيسية -->
+    <div class="gallery-main">
+      <img id="galleryMainImg"
+        src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png"
+        alt="Memo Max Premium Brain Supplement" loading="eager">
+      <!-- عداد الصور -->
+      <div class="gallery-badge" id="galleryBadge">1 / 4</div>
+      <!-- أزرار التنقل -->
+      <button class="gallery-nav prev" onclick="galleryNav(-1)" aria-label="Previous">&#8250;</button>
+      <button class="gallery-nav next" onclick="galleryNav(1)" aria-label="Next">&#8249;</button>
+    </div>
+    <!-- النقاط -->
+    <div class="gallery-dots" id="galleryDots"></div>
+    <!-- الصور المصغرة -->
+    <div class="gallery-thumbs" id="galleryThumbs"></div>
+    <div class="swipe-hint">← اسحب للتنقل بين الصور →</div>
+    <!-- الشارات العائمة -->
+    <div class="fbadge fb1">
+      <i class="fa-solid fa-brain fbi"></i>
+      <div>
+        <div style="font-size:11px;color:var(--gold-400);font-weight:900" data-i18n="fb1t"></div>
+        <div style="font-size:10px;color:rgba(255,255,255,.6)" data-i18n="fb1s"></div>
       </div>
     </div>
+    <div class="fbadge fb2">
+      <i class="fa-solid fa-leaf fbi"></i>
+      <div>
+        <div style="font-size:11px;color:var(--gold-400);font-weight:900" data-i18n="fb2t"></div>
+        <div style="font-size:10px;color:rgba(255,255,255,.6)" data-i18n="fb2s"></div>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 </section>
 
@@ -1813,14 +1841,84 @@ function setLang(lang) {
 // ════════════════════════════════════════
 // IMAGE SWITCHER
 // ════════════════════════════════════════
-function switchImg(thumb, src) {
-  const main = document.getElementById('main-product-img');
-  main.style.opacity = '0.7';
-  main.src = src;
-  main.onload = () => { main.style.opacity = '1'; };
-  document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-  thumb.classList.add('active');
+// ════════════════════════════════════════
+// GALLERY SYSTEM — Unlimited Photos
+// ════════════════════════════════════════
+const GALLERY_IMGS = [
+  'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo-new1.png',
+  'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/memo-new4.png',
+  'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/me21.png',
+  'https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/memo-new5.png',
+  // أضف أي صور جديدة هنا فقط — الباقي يعمل تلقائياً
+];
+
+let galleryIndex = 0;
+
+function galleryBuild() {
+  const dots = document.getElementById('galleryDots');
+  const thumbs = document.getElementById('galleryThumbs');
+  if (!dots || !thumbs) return;
+  dots.innerHTML = '';
+  thumbs.innerHTML = '';
+  GALLERY_IMGS.forEach((src, i) => {
+    // Dot
+    const dot = document.createElement('div');
+    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => galleryGoto(i);
+    dots.appendChild(dot);
+    // Thumb
+    const img = document.createElement('img');
+    img.className = 'gallery-thumb' + (i === 0 ? ' active' : '');
+    img.src = src;
+    img.alt = 'Memo Max view ' + (i + 1);
+    img.loading = 'lazy';
+    img.onclick = () => galleryGoto(i);
+    thumbs.appendChild(img);
+  });
+  document.getElementById('galleryBadge').textContent = '1 / ' + GALLERY_IMGS.length;
 }
+
+function galleryGoto(index) {
+  const main = document.getElementById('galleryMainImg');
+  if (!main) return;
+  galleryIndex = (index + GALLERY_IMGS.length) % GALLERY_IMGS.length;
+  // Transition
+  main.classList.add('switching');
+  setTimeout(() => {
+    main.src = GALLERY_IMGS[galleryIndex];
+    main.onload = () => main.classList.remove('switching');
+  }, 200);
+  // Update dots
+  document.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === galleryIndex));
+  // Update thumbs
+  document.querySelectorAll('.gallery-thumb').forEach((t, i) => {
+    t.classList.toggle('active', i === galleryIndex);
+    if (i === galleryIndex) t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  });
+  // Badge
+  const badge = document.getElementById('galleryBadge');
+  if (badge) badge.textContent = (galleryIndex + 1) + ' / ' + GALLERY_IMGS.length;
+}
+
+function galleryNav(dir) { galleryGoto(galleryIndex + dir); }
+
+// Swipe support
+(function initSwipe() {
+  let startX = 0;
+  const el = document.getElementById('productGallery');
+  if (!el) return;
+  el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  el.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) galleryNav(diff > 0 ? 1 : -1);
+  }, { passive: true });
+})();
+
+// Auto-advance every 5s
+setInterval(() => galleryNav(1), 5000);
+
+// Build on load
+document.addEventListener('DOMContentLoaded', galleryBuild);
 
 // ════════════════════════════════════════
 // SCROLL REVEAL
