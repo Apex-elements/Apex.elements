@@ -2108,30 +2108,7 @@ const bundles = {
 let selectedBundle = 2;
 
 function selectBundle(n) {
-  function selectBundle(n) {
-  selectedBundle = n;
-  const lang = document.documentElement.lang;
-  const labels = {
-    ar: {
-      1: {title:'عبوة واحدة', sub:'للتجربة الأولى'},
-      2: {title:'عبوتان', sub:'وفّر 60 درهم 💰'},
-      3: {title:'ثلاث عبوات', sub:'وفّر 141 درهم 🎉'}
-    },
-    en: {
-      1: {title:'One Pack', sub:'For first try'},
-      2: {title:'Two Packs', sub:'Save 60 AED 💰'},
-      3: {title:'Three Packs', sub:'Save 141 AED 🎉'}
-    }
-  };
-  selectedBundle = n;
-    // Update labels based on language
-  const L = labels[lang] || labels['ar'];
-  [1,2,3].forEach(i => {
-    const titleEl = document.querySelector(`#bundle${i} .bundle-title`);
-    const subEl = document.querySelector(`#bundle${i} .bundle-sub`);
-    if (titleEl) titleEl.textContent = L[i].title;
-    if (subEl) subEl.textContent = L[i].sub;
-  });
+    
   [1,2,3].forEach(i => {
     const b = document.getElementById('bundle'+i);
     const r = document.getElementById('radio'+i);
