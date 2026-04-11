@@ -1362,46 +1362,105 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
       <h2 class="rev d1" style="font-size:clamp(28px,4vw,50px);font-weight:900;color:#fff;line-height:1.15" data-i18n="buyH2"></h2>
     </div>
     <div class="buy-card rev">
-      <div class="buy-left">
-        <h2>Memo Max Premium</h2>
-        <p style="color:#999;font-size:13px;margin-bottom:4px" data-i18n="buySubtitle"></p>
-        <div class="price-disp"><span class="pm">379.99 <span>AED</span></span><span class="pold">480 AED</span></div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-  <span style="color:#f59e0b;font-size:16px;letter-spacing:1px">★★★★★</span>
-  <span style="font-size:13px;font-weight:700;color:#555">4.9</span>
-  <span style="font-size:12px;color:#999">(3,241 تقييم)</span>
-</div>
-        <span class="stag" data-i18n="savingTag"></span>
-        <div class="urg"><i class="fa-regular fa-clock"></i><span data-i18n="offerEnds"></span>: <span id="timer">47:59:47</span></div>
-        <ul class="flist">
-          <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="f1"></span></li>
-          <li><i class="fa-solid fa-truck-fast"></i> <span data-i18n="f2"></span></li>
-          <li><i class="fa-solid fa-lock"></i> <span data-i18n="f3"></span></li>
-          <li><i class="fa-solid fa-hand-holding-dollar"></i> <span data-i18n="f4"></span></li>
-          <li><i class="fa-solid fa-leaf"></i> <span data-i18n="f5"></span></li>
-        </ul>
-          
-<a href="https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03" 
-   target="_blank"
-   rel="noopener"
-   onclick="gtag('event','begin_checkout',{'event_category':'ecommerce','event_label':'Stripe'}); ttq.track('InitiateCheckout',{'content_type':'product','content_id':'MEMOMAX-001','value':379.99,'currency':'AED'}); fbq('track','InitiateCheckout',{'value':379.99,'currency':'AED'});"
-   class="buy-btn">
-   <i class="fa-brands fa-apple"></i> <span data-i18n="buyOnlineBtn"></span>
-</a>
+  <div class="buy-left">
+    <h2>Memo Max Premium</h2>
+    <p style="color:#999;font-size:13px;margin-bottom:16px" data-i18n="buySubtitle"></p>
 
-<a href="https://wa.me/971503045464?text=طلب_منتج_MemoMax" 
-   target="_blank" 
-   rel="noopener" 
-   onclick="gtag('event','generate_lead',{'event_category':'ecommerce','event_label':'WhatsApp COD'}); ttq.track('Contact',{'content_type':'product','content_id':'MEMOMAX-001'}); fbq('track','Lead');"
-   class="cod-btn">
-   <i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span>
-</a>
-          
-        <div class="pi" aria-label="Accepted payment methods">
-          <i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i>
-          <i class="fa-brands fa-cc-apple-pay"></i><i class="fa-brands fa-stripe"></i>
+    <!-- BUNDLE SELECTOR -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px">
+
+      <!-- Option 1 -->
+      <label style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:2px solid #e8e8e0;border-radius:14px;cursor:pointer;transition:.3s" id="bundle1" onclick="selectBundle(1)">
+        <div style="width:20px;height:20px;border-radius:50%;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;flex-shrink:0" id="radio1">
+          <div style="width:10px;height:10px;border-radius:50%;background:transparent" id="radioDot1"></div>
         </div>
-      </div>
+        <div style="flex:1">
+          <div style="font-size:14px;font-weight:800;color:var(--navy-900)">عبوة واحدة</div>
+          <div style="font-size:11px;color:#999">للتجربة الأولى</div>
+        </div>
+        <div style="text-align:left">
+          <div style="font-size:18px;font-weight:900;color:var(--gold-500)">379.99 AED</div>
+          <div style="font-size:10px;color:#bbb;text-decoration:line-through">480 AED</div>
+        </div>
+      </label>
+
+      <!-- Option 2 — Most Popular -->
+      <label style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:2px solid var(--gold-500);border-radius:14px;cursor:pointer;background:rgba(201,168,76,.05);position:relative;transition:.3s" id="bundle2" onclick="selectBundle(2)">
+        <div style="position:absolute;top:-10px;right:50%;transform:translateX(50%);background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--navy-950);font-size:10px;font-weight:900;padding:3px 12px;border-radius:50px;white-space:nowrap">🔥 الأكثر مبيعاً</div>
+        <div style="width:20px;height:20px;border-radius:50%;border:2px solid var(--gold-500);display:flex;align-items:center;justify-content:center;flex-shrink:0" id="radio2">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--gold-500)" id="radioDot2"></div>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:14px;font-weight:800;color:var(--navy-900)">عبوتان</div>
+          <div style="font-size:11px;color:var(--gold-600);font-weight:700">وفّر 60 درهم 💰</div>
+        </div>
+        <div style="text-align:left">
+          <div style="font-size:18px;font-weight:900;color:var(--gold-500)">699 AED</div>
+          <div style="font-size:10px;color:#bbb;text-decoration:line-through">760 AED</div>
+        </div>
+      </label>
+
+      <!-- Option 3 -->
+      <label style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:2px solid #e8e8e0;border-radius:14px;cursor:pointer;transition:.3s" id="bundle3" onclick="selectBundle(3)">
+        <div style="width:20px;height:20px;border-radius:50%;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;flex-shrink:0" id="radio3">
+          <div style="width:10px;height:10px;border-radius:50%;background:transparent" id="radioDot3"></div>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:14px;font-weight:800;color:var(--navy-900)">ثلاث عبوات</div>
+          <div style="font-size:11px;color:#22c55e;font-weight:700">وفّر 141 درهم 🎉</div>
+        </div>
+        <div style="text-align:left">
+          <div style="font-size:18px;font-weight:900;color:var(--gold-500)">999 AED</div>
+          <div style="font-size:10px;color:#bbb;text-decoration:line-through">1,140 AED</div>
+        </div>
+      </label>
+
+    </div>
+
+    <!-- Stock counter -->
+    <div style="display:flex;align-items:center;gap:8px;background:#fff5f5;border:1px solid #fdd;border-radius:10px;padding:9px 14px;margin-bottom:14px">
+      <span style="width:8px;height:8px;background:#ef4444;border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0"></span>
+      <span style="font-size:12px;font-weight:800;color:#c0392b" id="stockText">تبقى فقط 7 عبوات من هذا العرض</span>
+    </div>
+
+    <div class="price-disp" id="priceDisplay">
+      <span class="pm" id="currentPrice">699 <span>AED</span></span>
+      <span class="pold" id="oldPrice">760 AED</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+      <span class="stag" id="savingBadge">✓ وفّر 60 درهم اليوم 🔥</span>
+    </div>
+
+    <div class="urg"><i class="fa-regular fa-clock"></i><span data-i18n="offerEnds"></span>: <span id="timer">47:59:47</span></div>
+
+    <ul class="flist">
+      <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="f1"></span></li>
+      <li><i class="fa-solid fa-truck-fast"></i> <span data-i18n="f2"></span></li>
+      <li><i class="fa-solid fa-lock"></i> <span data-i18n="f3"></span></li>
+      <li><i class="fa-solid fa-hand-holding-dollar"></i> <span data-i18n="f4"></span></li>
+      <li><i class="fa-solid fa-rotate-left" style="color:var(--gold-500)"></i> <span>ضمان الرضا 30 يوماً — نرد لك المال</span></li>
+    </ul>
+
+    <a id="stripeBtn" href="https://wa.me/971503045464?text=أود%20طلب%20عبوتين%20من%20Memo%20Max%20بسعر%20699%20درهم"
+       target="_blank" rel="noopener"
+       onclick="trackBundleCheckout()"
+       class="buy-btn">
+      <i class="fa-solid fa-brain"></i> <span data-i18n="buyOnlineBtn"></span>
+    </a>
+
+    <a href="https://wa.me/971503045464?text=طلب_منتج_MemoMax"
+       target="_blank" rel="noopener"
+       onclick="gtag('event','generate_lead',{'event_category':'ecommerce'}); ttq.track('Contact',{'content_id':'MEMOMAX-001'}); fbq('track','Lead');"
+       class="cod-btn">
+      <i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span>
+    </a>
+
+    <div class="pi">
+      <i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fa-brands fa-cc-apple-pay"></i><i class="fa-brands fa-stripe"></i>
+    </div>
+  </div>
       <div class="buy-right">
         <h3 data-i18n="buyRightTitle"></h3>
         <p data-i18n="buyRightDesc"></p>
@@ -2019,6 +2078,43 @@ function openVideo() {
       Your browser does not support the video tag.
     </video>`;
 }
+
+
+// ════════════ BUNDLE SYSTEM ════════════
+const bundles = {
+  1: { price:'379.99', old:'480', save:'وفّر 100 درهم', waText:'أود%20طلب%20عبوة%20Memo%20Max%20بسعر%20379.99%20درهم', stripeUrl:'https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03' },
+  2: { price:'699', old:'760', save:'وفّر 60 درهم 🔥', waText:'أود%20طلب%20عبوتين%20من%20Memo%20Max%20بسعر%20699%20درهم', stripeUrl:'https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03' },
+  3: { price:'999', old:'1,140', save:'وفّر 141 درهم 🎉', waText:'أود%20طلب%20ثلاث%20عبوات%20من%20Memo%20Max%20بسعر%20999%20درهم', stripeUrl:'https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03' }
+};
+let selectedBundle = 2;
+
+function selectBundle(n) {
+  selectedBundle = n;
+  [1,2,3].forEach(i => {
+    const b = document.getElementById('bundle'+i);
+    const r = document.getElementById('radio'+i);
+    const d = document.getElementById('radioDot'+i);
+    if (!b) return;
+    const isActive = i === n;
+    b.style.borderColor = isActive ? 'var(--gold-500)' : '#e8e8e0';
+    b.style.background = isActive ? 'rgba(201,168,76,.05)' : '';
+    r.style.borderColor = isActive ? 'var(--gold-500)' : '#ccc';
+    d.style.background = isActive ? 'var(--gold-500)' : 'transparent';
+  });
+  const bdata = bundles[n];
+  document.getElementById('currentPrice').innerHTML = bdata.price + ' <span>AED</span>';
+  document.getElementById('oldPrice').textContent = bdata.old + ' AED';
+  document.getElementById('savingBadge').textContent = '✓ ' + bdata.save;
+  const btn = document.getElementById('stripeBtn');
+  if (btn) btn.href = 'https://wa.me/971503045464?text=' + bdata.waText;
+}
+
+function trackBundleCheckout() {
+  gtag('event','begin_checkout',{'value': selectedBundle===1?379.99:selectedBundle===2?699:999,'currency':'AED'});
+  ttq.track('InitiateCheckout',{'content_id':'MEMOMAX-001','value': selectedBundle===1?379.99:selectedBundle===2?699:999,'currency':'AED'});
+  fbq('track','InitiateCheckout',{'value': selectedBundle===1?379.99:selectedBundle===2?699:999,'currency':'AED'});
+}
+
   
 </script>
 
