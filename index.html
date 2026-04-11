@@ -1394,8 +1394,8 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
           <div style="width:10px;height:10px;border-radius:50%;background:transparent" id="radioDot1"></div>
         </div>
         <div style="flex:1">
-          <div style="font-size:14px;font-weight:800;color:var(--navy-900)">عبوة واحدة</div>
-          <div style="font-size:11px;color:#999">للتجربة الأولى</div>
+          <div style="font-size:14px;font-weight:800;color:var(--navy-900)"class="bundle-title">عبوة واحدة</div>
+          <div style="font-size:11px;color:#999"class="bundle-sub">للتجربة الأولى</div>
         </div>
         <div style="text-align:left">
           <div style="font-size:18px;font-weight:900;color:var(--gold-500)">379.99 AED</div>
@@ -1410,8 +1410,8 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
           <div style="width:10px;height:10px;border-radius:50%;background:var(--gold-500)" id="radioDot2"></div>
         </div>
         <div style="flex:1">
-          <div style="font-size:14px;font-weight:800;color:var(--navy-900)">عبوتان</div>
-          <div style="font-size:11px;color:var(--gold-600);font-weight:700">وفّر 60 درهم 💰</div>
+          <div style="font-size:14px;font-weight:800;color:var(--navy-900)"class="bundle-title">عبوتان</div>
+          <div style="font-size:11px;color:var(--gold-600);font-weight:700"class="bundle-sub">وفّر 60 درهم 💰</div>
         </div>
         <div style="text-align:left">
           <div style="font-size:18px;font-weight:900;color:var(--gold-500)">699 AED</div>
@@ -1425,8 +1425,8 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
           <div style="width:10px;height:10px;border-radius:50%;background:transparent" id="radioDot3"></div>
         </div>
         <div style="flex:1">
-          <div style="font-size:14px;font-weight:800;color:var(--navy-900)">ثلاث عبوات</div>
-          <div style="font-size:11px;color:#22c55e;font-weight:700">وفّر 141 درهم 🎉</div>
+          <div style="font-size:14px;font-weight:800;color:var(--navy-900)"class="bundle-title">ثلاث عبوات</div>
+          <div style="font-size:11px;color:#22c55e;font-weight:700"class="bundle-sub">وفّر 141 درهم 🎉</div>
         </div>
         <div style="text-align:left">
           <div style="font-size:18px;font-weight:900;color:var(--gold-500)">999 AED</div>
@@ -1880,6 +1880,14 @@ function setLang(lang) {
 
   // Save preference
   try { localStorage.setItem('apexLang', lang); } catch(e){}
+  // Bundle + Stock translation
+  const isEnBundle = lang === 'en';
+  const bundleTitles = isEnBundle ? ['One Pack','Two Packs','Three Packs'] : ['عبوة واحدة','عبوتان','ثلاث عبوات'];
+  const bundleSubs = isEnBundle ? ['For first try','Save 60 AED 💰','Save 141 AED 🎉'] : ['للتجربة الأولى','وفّر 60 درهم 💰','وفّر 141 درهم 🎉'];
+  document.querySelectorAll('.bundle-title').forEach((el,i) => { if(bundleTitles[i]) el.textContent = bundleTitles[i]; });
+  document.querySelectorAll('.bundle-sub').forEach((el,i) => { if(bundleSubs[i]) el.textContent = bundleSubs[i]; });
+  const st = document.getElementById('stockText');
+  if (st) st.textContent = isEnBundle ? 'Only 7 packs left from this offer' : 'تبقى فقط 7 عبوات من هذا العرض';
 
   // Update meta description for SEO
   const metaDesc = document.querySelector('meta[name="description"]');
