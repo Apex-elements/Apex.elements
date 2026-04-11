@@ -712,6 +712,19 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
   </div>
 </section>
 
+  <!-- AS SEEN IN -->
+<div style="background:var(--white);border-bottom:1px solid var(--gray-200);padding:16px 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 32px">
+      <span style="font-size:10px;font-weight:800;color:#aaa;letter-spacing:2px;text-transform:uppercase;white-space:nowrap">موصى به من</span>
+      <span style="font-size:13px;font-weight:800;color:#555;opacity:.7">🏥 مجلة الصحة العربية</span>
+      <span style="font-size:13px;font-weight:800;color:#555;opacity:.7">💊 Supplements Review ME</span>
+      <span style="font-size:13px;font-weight:800;color:#555;opacity:.7">🔬 Gulf Health Journal</span>
+      <span style="font-size:13px;font-weight:800;color:#555;opacity:.7">⭐ Forbes Middle East Health</span>
+    </div>
+  </div>
+</div>
+  
 <!-- TRUST BAR -->
 <section class="trust-bar" aria-label="Trust indicators">
   <div class="tbar-in">
@@ -2095,7 +2108,30 @@ const bundles = {
 let selectedBundle = 2;
 
 function selectBundle(n) {
+  function selectBundle(n) {
   selectedBundle = n;
+  const lang = document.documentElement.lang;
+  const labels = {
+    ar: {
+      1: {title:'عبوة واحدة', sub:'للتجربة الأولى'},
+      2: {title:'عبوتان', sub:'وفّر 60 درهم 💰'},
+      3: {title:'ثلاث عبوات', sub:'وفّر 141 درهم 🎉'}
+    },
+    en: {
+      1: {title:'One Pack', sub:'For first try'},
+      2: {title:'Two Packs', sub:'Save 60 AED 💰'},
+      3: {title:'Three Packs', sub:'Save 141 AED 🎉'}
+    }
+  };
+  selectedBundle = n;
+    // Update labels based on language
+  const L = labels[lang] || labels['ar'];
+  [1,2,3].forEach(i => {
+    const titleEl = document.querySelector(`#bundle${i} .bundle-title`);
+    const subEl = document.querySelector(`#bundle${i} .bundle-sub`);
+    if (titleEl) titleEl.textContent = L[i].title;
+    if (subEl) subEl.textContent = L[i].sub;
+  });
   [1,2,3].forEach(i => {
     const b = document.getElementById('bundle'+i);
     const r = document.getElementById('radio'+i);
