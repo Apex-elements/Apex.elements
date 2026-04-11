@@ -619,6 +619,12 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
 </div>
 
 <!-- ANNOUNCE BAR -->
+  <!-- SHIPPING TIMER BAR -->
+<div id="shippingBar" style="background:var(--navy-900);border-bottom:1px solid rgba(201,168,76,.2);text-align:center;padding:7px 16px;font-size:12px;font-weight:700;color:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap">
+  <i class="fa-solid fa-truck-fast" style="color:var(--gold-400)"></i>
+  <span>اطلب قبل الساعة <strong style="color:var(--gold-400)">5:00 مساءً</strong> — يصلك <strong style="color:#22c55e">غداً</strong> إن شاء الله</span>
+  <span style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:6px;padding:2px 10px;color:var(--gold-400);font-family:monospace" id="shippingCountdown">04:32:15</span>
+</div>
 <div class="abar" role="banner">
   <i class="fa-solid fa-truck-fast" style="margin-left:8px"></i>
   <span data-i18n="announce"></span>
@@ -2115,9 +2121,80 @@ function trackBundleCheckout() {
   fbq('track','InitiateCheckout',{'value': selectedBundle===1?379.99:selectedBundle===2?699:999,'currency':'AED'});
 }
 
+// ════════════ EXIT INTENT ════════════
+let exitShown = false;
+document.addEventListener('mouseleave', e => {
+  if (e.clientY < 10 && !exitShown) {
+    exitShown = true;
+    const popup = document.getElementById('exitPopup');
+    popup.style.display = 'flex';
+    ttq.track('ViewContent',{'content_id':'MEMOMAX-EXIT'});
+  }
+});
+// Mobile: show after 60s if not scrolled to buy section
+setTimeout(() => {
+  if (!exitShown) {
+    exitShown = true;
+    document.getElementById('exitPopup').style.display = 'flex';
+  }
+}, 60000);
+function closeExitPopup() {
+  document.getElementById('exitPopup').style.display = 'none';
+}
+
+
+  // ════════════ SHIPPING COUNTDOWN ════════════
+function updateShippingTimer() {
+  const now = new Date();
+  const cutoff = new Date();
+  cutoff.setHours(17, 0, 0, 0);
+  if (now >= cutoff) cutoff.setDate(cutoff.getDate() + 1);
+  const diff = cutoff - now;
+  const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+  const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+  const el = document.getElementById('shippingCountdown');
+  if (el) el.textContent = h+':'+m+':'+s;
+  if (now >= cutoff) {
+    const bar = document.getElementById('shippingBar');
+    if (bar) bar.innerHTML = '<i class="fa-solid fa-clock" style="color:var(--gold-400)"></i> <span>التوصيل غداً لجميع إمارات الدولة</span>';
+  }
+}
+updateShippingTimer();
+setInterval(updateShippingTimer, 1000);
   
 </script>
 
+  <!-- EXIT INTENT POPUP -->
+<div id="exitPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:28px;max-width:440px;width:100%;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.4);position:relative;animation:popIn .4s cubic-bezier(.4,0,.2,1)">
+    <button onclick="closeExitPopup()" style="position:absolute;top:14px;left:14px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.08);border:none;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1">✕</button>
+    <div style="background:linear-gradient(135deg,var(--navy-950),var(--navy-800));padding:32px 28px 24px;text-align:center;position:relative;overflow:hidden">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.15),transparent 70%);pointer-events:none"></div>
+      <div style="font-size:44px;margin-bottom:10px">🧠</div>
+      <div style="font-size:14px;font-weight:800;color:var(--gold-400);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">انتظر!</div>
+      <h3 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#fff;line-height:1.3;margin-bottom:8px">لديك خصم حصري<br><span style="color:var(--gold-400)">10% لم يره أحد غيرك</span></h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.6">استخدم هذا العرض الآن قبل انتهائه — لن يظهر مرة أخرى</p>
+    </div>
+    <div style="padding:24px 28px">
+      <div style="background:#f8f4ea;border:2px dashed var(--gold-500);border-radius:14px;padding:16px;text-align:center;margin-bottom:20px">
+        <div style="font-size:11px;color:#999;margin-bottom:6px">كود الخصم الخاص بك</div>
+        <div style="font-size:26px;font-weight:900;color:var(--gold-600);letter-spacing:4px">APEX10</div>
+        <div style="font-size:11px;color:#888;margin-top:4px">اذكره عند التواصل عبر واتساب</div>
+      </div>
+      <a href="https://wa.me/971503045464?text=لدي%20كود%20APEX10%20وأريد%20الحصول%20على%20خصم%2010%25%20على%20Memo%20Max"
+         target="_blank" rel="noopener"
+         onclick="closeExitPopup(); ttq.track('Contact',{'content_id':'MEMOMAX-001'}); fbq('track','Lead');"
+         style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#25D366;color:#fff;font-weight:900;font-size:16px;padding:16px;border-radius:13px;margin-bottom:10px">
+        <i class="fa-brands fa-whatsapp fa-lg"></i> احصل على الخصم الآن
+      </a>
+      <button onclick="closeExitPopup()" style="width:100%;background:transparent;border:none;color:#aaa;font-size:12px;cursor:pointer;padding:8px">لا شكراً، أريد المتابعة بالسعر الكامل</button>
+    </div>
+  </div>
+</div>
+<style>
+@keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+</style>
 
 </body>
 </html>
