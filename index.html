@@ -1461,19 +1461,24 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
       <li><i class="fa-solid fa-rotate-left" style="color:var(--gold-500)"></i> <span>ضمان الرضا 30 يوماً — نرد لك المال</span></li>
     </ul>
 
-    <a id="stripeBtn" href="https://wa.me/971503045464?text=أود%20طلب%20عبوتين%20من%20Memo%20Max%20بسعر%20699%20درهم"
-       target="_blank" rel="noopener"
-       onclick="trackBundleCheckout()"
-       class="buy-btn">
-      <i class="fa-solid fa-brain"></i> <span data-i18n="buyOnlineBtn"></span>
-    </a>
+    <a id="stripeBtn"
+   href="https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03"
+   target="_blank"
+   rel="noopener"
+   onclick="trackBundleCheckout()"
+   class="buy-btn">
+  <i class="fa-solid fa-brain"></i> <span data-i18n="buyOnlineBtn"></span>
+</a>
+    
 
-    <a href="https://wa.me/971503045464?text=طلب_منتج_MemoMax"
-       target="_blank" rel="noopener"
-       onclick="gtag('event','generate_lead',{'event_category':'ecommerce'}); ttq.track('Contact',{'content_id':'MEMOMAX-001'}); fbq('track','Lead');"
-       class="cod-btn">
-      <i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span>
-    </a>
+    <a id="codBundleBtn"
+   href="https://wa.me/971503045464?text=أود%20طلب%20عبوتين%20من%20Memo%20Max%20بسعر%20699%20درهم"
+   target="_blank"
+   rel="noopener"
+   onclick="gtag('event','generate_lead',{'event_category':'ecommerce'}); ttq.track('Contact',{'content_id':'MEMOMAX-001'}); fbq('track','Lead');"
+   class="cod-btn">
+  <i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="buyCodBtn"></span>
+</a>
 
     <div class="pi">
       <i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i>
@@ -2113,10 +2118,26 @@ function openVideo() {
 
 // ════════════ BUNDLE SYSTEM ════════════
 const bundles = {
-  1: { price:'379.99', old:'480', save:'وفّر 100 درهم', waText:'أود%20طلب%20عبوة%20Memo%20Max%20بسعر%20379.99%20درهم', stripeUrl:'https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03' },
-  2: { price:'699', old:'760', save:'وفّر 60 درهم 🔥', waText:'أود%20طلب%20عبوتين%20من%20Memo%20Max%20بسعر%20699%20درهم', stripeUrl:'https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03' },
-  3: { price:'999', old:'1,140', save:'وفّر 141 درهم 🎉', waText:'أود%20طلب%20ثلاث%20عبوات%20من%20Memo%20Max%20بسعر%20999%20درهم', stripeUrl:'https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03' }
+  1: {
+    price:'379.99', old:'480', save:'وفّر 100 درهم',
+    stripeUrl:'https://buy.stripe.com/8x29AS0ZZcDG3Xx9Ik3ks03',
+    waAr:'أود%20طلب%20عبوة%20واحدة%20من%20Memo%20Max%20بسعر%20379.99%20درهم',
+    waEn:'I%20want%20to%20order%201%20pack%20of%20Memo%20Max%20for%20379.99%20AED'
+  },
+  2: {
+    price:'699', old:'760', save:'وفّر 60 درهم 🔥',
+    stripeUrl:'https://buy.stripe.com/STRIPE_2_PACKS_LINK',
+    waAr:'أود%20طلب%20عبوتين%20من%20Memo%20Max%20بسعر%20699%20درهم',
+    waEn:'I%20want%20to%20order%202%20packs%20of%20Memo%20Max%20for%20699%20AED'
+  },
+  3: {
+    price:'999', old:'1,140', save:'وفّر 141 درهم 🎉',
+    stripeUrl:'https://buy.stripe.com/STRIPE_3_PACKS_LINK',
+    waAr:'أود%20طلب%20ثلاث%20عبوات%20من%20Memo%20Max%20بسعر%20999%20درهم',
+    waEn:'I%20want%20to%20order%203%20packs%20of%20Memo%20Max%20for%20999%20AED'
+  }
 };
+  
 let selectedBundle = 2;
 
 function selectBundle(n) {
@@ -2136,14 +2157,37 @@ function selectBundle(n) {
   document.getElementById('currentPrice').innerHTML = bdata.price + ' <span>AED</span>';
   document.getElementById('oldPrice').textContent = bdata.old + ' AED';
   document.getElementById('savingBadge').textContent = '✓ ' + bdata.save;
-  const btn = document.getElementById('stripeBtn');
-  if (btn) btn.href = 'https://wa.me/971503045464?text=' + bdata.waText;
+  const lang = document.documentElement.lang;
+  const waMsg = lang === 'en' ? bdata.waEn : bdata.waAr;
+
+  // Stripe button
+  const stripeBtn = document.getElementById('stripeBtn');
+  if (stripeBtn) {
+    stripeBtn.href = bdata.stripeUrl;
+    stripeBtn.target = '_blank';
+    stripeBtn.rel = 'noopener';
+  }
+
+  // COD WhatsApp button
+  const codBtn = document.getElementById('codBundleBtn');
+  if (codBtn) codBtn.href = 'https://wa.me/971503045464?text=' + waMsg;
 }
 
 function trackBundleCheckout() {
-  gtag('event','begin_checkout',{'value': selectedBundle===1?379.99:selectedBundle===2?699:999,'currency':'AED'});
-  ttq.track('InitiateCheckout',{'content_id':'MEMOMAX-001','value': selectedBundle===1?379.99:selectedBundle===2?699:999,'currency':'AED'});
-  fbq('track','InitiateCheckout',{'value': selectedBundle===1?379.99:selectedBundle===2?699:999,'currency':'AED'});
+  const val = selectedBundle===1 ? 379.99 : selectedBundle===2 ? 699 : 999;
+  const qty = selectedBundle;
+
+  // Google
+  gtag('event','begin_checkout',{'value':val,'currency':'AED','items':[{'item_id':'MEMOMAX-001','item_name':'Memo Max','quantity':qty,'price':val}]});
+  gtag('event','purchase',{'transaction_id':'MM_'+Date.now(),'value':val,'currency':'AED','items':[{'item_id':'MEMOMAX-001','item_name':'Memo Max','quantity':qty,'price':val}]});
+
+  // TikTok
+  ttq.track('InitiateCheckout',{'content_type':'product','content_id':'MEMOMAX-001','value':val,'currency':'AED','quantity':qty});
+  ttq.track('PlaceAnOrder',{'content_type':'product','content_id':'MEMOMAX-001','value':val,'currency':'AED','quantity':qty});
+
+  // Facebook
+  fbq('track','InitiateCheckout',{'value':val,'currency':'AED','num_items':qty});
+  fbq('track','Purchase',{'value':val,'currency':'AED','num_items':qty,'content_ids':['MEMOMAX-001'],'content_type':'product'});
 }
 
 // ════════════ EXIT INTENT ════════════
