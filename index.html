@@ -1582,7 +1582,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
     <!-- Stock counter -->
     <div style="display:flex;align-items:center;gap:8px;background:#fff5f5;border:1px solid #fdd;border-radius:10px;padding:9px 14px;margin-bottom:14px">
       <span style="width:8px;height:8px;background:#ef4444;border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0"></span>
-      <span style="font-size:12px;font-weight:800;color:#c0392b" id="stockText">تبقى فقط 7 عبوات من هذا العرض</span>
+      <span style="font-size:12px;font-weight:800;color:#c0392b" id="stockText">تبقى فقط 14 عبوة من هذا العرض</span>
     </div>
 
     <div class="price-disp" id="priceDisplay">
@@ -2059,7 +2059,7 @@ function setLang(lang) {
   document.querySelectorAll('.bundle-title').forEach((el,i) => { if(bundleTitles[i]) el.textContent = bundleTitles[i]; });
   document.querySelectorAll('.bundle-sub').forEach((el,i) => { if(bundleSubs[i]) el.textContent = bundleSubs[i]; });
   const st = document.getElementById('stockText');
-  if (st) st.textContent = isEnBundle ? 'Only 7 packs left from this offer' : 'تبقى فقط 7 عبوات من هذا العرض';
+  if (st) st.textContent = isEnBundle ? 'Only 14 packs left from this offer' : 'تبقى فقط 14 عبوة من هذا العرض';
 
   // Update meta description for SEO
   const metaDesc = document.querySelector('meta[name="description"]');
