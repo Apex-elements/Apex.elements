@@ -1250,30 +1250,86 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
       <h2 class="sh rev d1" data-i18n="sciH2"></h2>
       <div class="gdiv rev d2" style="margin:14px auto 0"></div>
     </div>
-    <div class="sci-grid">
-      <div class="sci-img-wrap rev">
-        <img src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo%20Max%20for%20Brain%20arabic.png" alt="Memo Max natural ingredients science" loading="lazy" width="560" height="440">
-        <div class="sci-overlay"></div>
-        <div class="sci-caption" data-i18n="sciCaption"></div>
+
+    <!-- الشبكة الرئيسية -->
+    <div style="display:grid;grid-template-columns:1fr;gap:36px;align-items:start;margin-top:52px">
+
+      <!-- الصورة -->
+      <div class="sci-img-wrap rev" style="border-radius:var(--r-2xl);overflow:hidden;position:relative">
+        <img src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Memo%20Max%20for%20Brain%20arabic.png"
+          alt="Memo Max natural ingredients science"
+          loading="lazy"
+          style="width:100%;display:block;height:280px;object-fit:cover;border-radius:var(--r-2xl)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,var(--navy-950) 0%,transparent 50%);border-radius:var(--r-2xl)"></div>
+        <div style="position:absolute;bottom:18px;right:18px;left:18px;color:#fff;font-size:15px;font-weight:700;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.5" data-i18n="sciCaption"></div>
       </div>
-      <div>
-        <div class="ing-card rev d1">
-          <div class="ing-hdr"><div class="iico blue"><i class="fa-solid fa-brain"></i></div><div><div class="ititle" data-i18n="ing1title"></div><div class="isub">Ginkgo Biloba</div></div></div>
-          <p class="idesc" data-i18n="ing1desc"></p>
-          <div class="eff"><span class="effl" data-i18n="efficacy"></span><div class="effbar"><div class="efill" data-w="92%"></div></div><span class="effl" style="color:var(--gold-500);font-weight:900">92%</span></div>
+
+      <!-- البطاقات -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <!-- بطاقة 1 -->
+        <div class="ing-card rev d1" style="border-radius:var(--r-xl);border:1px solid var(--gray-200);padding:22px;background:#fff">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,48,96,.08);color:var(--navy-700);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div>
+              <div style="font-size:16px;font-weight:900;color:var(--navy-900)" data-i18n="ing1title"></div>
+              <div style="font-size:10px;color:var(--gold-500);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:2px">Ginkgo Biloba</div>
+            </div>
+          </div>
+          <p style="font-size:14px;color:#666;line-height:1.75;margin-bottom:12px" data-i18n="ing1desc"></p>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:11px;font-weight:700;color:#999;white-space:nowrap" data-i18n="efficacy"></span>
+            <div style="flex:1;height:5px;background:#eee;border-radius:3px;overflow:hidden">
+              <div class="efill" data-w="92%" style="height:100%;background:linear-gradient(90deg,var(--gold-400),var(--gold-600));border-radius:3px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s"></div>
+            </div>
+            <span style="font-size:11px;font-weight:900;color:var(--gold-500)">92%</span>
+          </div>
         </div>
-        <div class="ing-card rev d2">
-          <div class="ing-hdr"><div class="iico gold"><i class="fa-solid fa-bolt"></i></div><div><div class="ititle" data-i18n="ing2title"></div><div class="isub">Red Panax Ginseng</div></div></div>
-          <p class="idesc" data-i18n="ing2desc"></p>
-          <div class="eff"><span class="effl" data-i18n="efficacy"></span><div class="effbar"><div class="efill" data-w="88%"></div></div><span class="effl" style="color:var(--gold-500);font-weight:900">88%</span></div>
+
+        <!-- بطاقة 2 -->
+        <div class="ing-card rev d2" style="border-radius:var(--r-xl);border:1px solid var(--gray-200);padding:22px;background:#fff">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(201,168,76,.1);color:var(--gold-500);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+              <div style="font-size:16px;font-weight:900;color:var(--navy-900)" data-i18n="ing2title"></div>
+              <div style="font-size:10px;color:var(--gold-500);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:2px">Red Panax Ginseng</div>
+            </div>
+          </div>
+          <p style="font-size:14px;color:#666;line-height:1.75;margin-bottom:12px" data-i18n="ing2desc"></p>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:11px;font-weight:700;color:#999;white-space:nowrap" data-i18n="efficacy"></span>
+            <div style="flex:1;height:5px;background:#eee;border-radius:3px;overflow:hidden">
+              <div class="efill" data-w="88%" style="height:100%;background:linear-gradient(90deg,var(--gold-400),var(--gold-600));border-radius:3px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s"></div>
+            </div>
+            <span style="font-size:11px;font-weight:900;color:var(--gold-500)">88%</span>
+          </div>
         </div>
+
       </div>
     </div>
+
+    <!-- على الشاشات الكبيرة — جعل الصورة والبطاقات جنباً لجنب -->
+    <style>
+      @media(min-width:900px){
+        #science .cnt > div:last-child{
+          grid-template-columns:1fr 1fr !important;
+          gap:44px !important;
+          align-items:center !important;
+        }
+        #science .cnt > div:last-child > .sci-img-wrap img{
+          height:440px !important;
+        }
+      }
+    </style>
+
   </div>
 </section>
-
-  <div style="height:4px;background:linear-gradient(90deg,var(--gold-400),var(--gold-600));opacity:.3"></div>
-  
+<div style="height:4px;background:linear-gradient(90deg,var(--gold-400),var(--gold-600));opacity:.3"></div>
+            
 <!-- COMPARISON -->
 <section class="sec" style="background:var(--gray-100)">
   <div class="cnt" style="max-width:900px;margin:0 auto">
