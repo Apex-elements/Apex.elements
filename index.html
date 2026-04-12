@@ -1252,7 +1252,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
     </div>
 
     <!-- الشبكة الرئيسية -->
-    <div style="display:grid;grid-template-columns:1fr;gap:36px;align-items:start;margin-top:52px">
+   <div style="display:grid;grid-template-columns:1fr;gap:36px;align-items:start;margin-top:52px;width:100%">
 
       <!-- الصورة -->
       <div class="sci-img-wrap rev" style="border-radius:var(--r-2xl);overflow:hidden;position:relative">
@@ -1268,8 +1268,8 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
       <div style="display:flex;flex-direction:column;gap:16px">
 
         <!-- بطاقة 1 -->
-        <div class="ing-card rev d1" style="border-radius:var(--r-xl);border:1px solid var(--gray-200);padding:22px;background:#fff">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div class="ing-card rev d1" style="border-radius:var(--r-xl);border:1px solid var(--gray-200);padding:22px;background:#fff;width:100%;box-sizing:border-box">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;width:100%">
             <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,48,96,.08);color:var(--navy-700);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">
               <i class="fa-solid fa-brain"></i>
             </div>
@@ -1278,7 +1278,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
               <div style="font-size:10px;color:var(--gold-500);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:2px">Ginkgo Biloba</div>
             </div>
           </div>
-          <p style="font-size:14px;color:#666;line-height:1.75;margin-bottom:12px" data-i18n="ing1desc"></p>
+          <p style="font-size:14px;color:#666;line-height:1.75;margin-bottom:12px;text-align:right;width:100%" data-i18n="ing1desc"></p>
           <div style="display:flex;align-items:center;gap:10px">
             <span style="font-size:11px;font-weight:700;color:#999;white-space:nowrap" data-i18n="efficacy"></span>
             <div style="flex:1;height:5px;background:#eee;border-radius:3px;overflow:hidden">
@@ -1289,8 +1289,8 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
         </div>
 
         <!-- بطاقة 2 -->
-        <div class="ing-card rev d2" style="border-radius:var(--r-xl);border:1px solid var(--gray-200);padding:22px;background:#fff">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div class="ing-card rev d2" style="border-radius:var(--r-xl);border:1px solid var(--gray-200);padding:22px;background:#fff;width:100%;box-sizing:border-box">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;width:100%">
             <div style="width:44px;height:44px;border-radius:12px;background:rgba(201,168,76,.1);color:var(--gold-500);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">
               <i class="fa-solid fa-bolt"></i>
             </div>
@@ -1299,7 +1299,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
               <div style="font-size:10px;color:var(--gold-500);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:2px">Red Panax Ginseng</div>
             </div>
           </div>
-          <p style="font-size:14px;color:#666;line-height:1.75;margin-bottom:12px" data-i18n="ing2desc"></p>
+          <p style="font-size:14px;color:#666;line-height:1.75;margin-bottom:12px;text-align:right;width:100%" data-i18n="ing2desc"></p>
           <div style="display:flex;align-items:center;gap:10px">
             <span style="font-size:11px;font-weight:700;color:#999;white-space:nowrap" data-i18n="efficacy"></span>
             <div style="flex:1;height:5px;background:#eee;border-radius:3px;overflow:hidden">
@@ -2413,6 +2413,23 @@ function updateShippingTimer() {
 }
 updateShippingTimer();
 setInterval(updateShippingTimer, 1000);
+
+/* Science section mobile fix */
+.sci-sec .cnt > div:last-child,
+.sci-sec .ing-card{
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+}
+.sci-sec .idesc,
+.sci-sec p{
+  text-align:right;
+  width:100%;
+}
+html[dir="ltr"] .sci-sec .idesc,
+html[dir="ltr"] .sci-sec p{
+  text-align:left;
+}
   
 </script>
 
