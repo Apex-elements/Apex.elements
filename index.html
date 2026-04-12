@@ -262,7 +262,7 @@ h1 .acc{color:var(--gold-400);font-family:'Cormorant Garamond',serif;font-style:
 .gallery-main{position:relative;border-radius:24px;overflow:hidden;background:var(--navy-900);aspect-ratio:4/5;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .gallery-main img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .4s ease,transform .4s ease}
 .gallery-main img.switching{opacity:0;transform:scale(1.03)}
-.gallery-badge{position:absolute;top:14px;right:14px;background:rgba(0,16,31,.85);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:5px 10px;font-size:11px;font-weight:800;color:var(--gold-400);backdrop-filter:blur(8px);z-index:3}
+.gallery-badge{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,16,31,.85);border:1px solid rgba(201,168,76,.3);border-radius:50px;padding:5px 16px;font-size:11px;font-weight:800;color:var(--gold-400);backdrop-filter:blur(8px);z-index:3;white-space:nowrap}
 .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(0,16,31,.8);border:1px solid rgba(201,168,76,.3);color:var(--gold-400);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:var(--ease);font-size:13px}
 .gallery-nav:hover{background:var(--gold-500);color:var(--navy-950);border-color:var(--gold-500)}
 .gallery-nav.prev{right:12px}
@@ -2201,12 +2201,27 @@ document.addEventListener('mouseleave', e => {
   }
 });
 // Mobile: show after 60s if not scrolled to buy section
-setTimeout(() => {
-  if (!exitShown) {
-    exitShown = true;
-    document.getElementById('exitPopup').style.display = 'flex';
-  }
-}, 60000);
+// Mobile: show after 60s of INACTIVITY (no touch)
+let mobileInactivityTimer;
+
+function resetMobileTimer() {
+  clearTimeout(mobileInactivityTimer);
+  mobileInactivityTimer = setTimeout(() => {
+    if (!exitShown) {
+      exitShown = true;
+      document.getElementById('exitPopup').style.display = 'flex';
+    }
+  }, 60000); // 60 ثانية من عدم اللمس
+}
+
+// ابدأ المؤقت عند تحميل الصفحة
+resetMobileTimer();
+
+// أعد المؤقت عند أي لمس
+['touchstart','touchmove','touchend','click'].forEach(event => {
+  document.addEventListener(event, resetMobileTimer, { passive: true });
+});
+  
 function closeExitPopup() {
   document.getElementById('exitPopup').style.display = 'none';
 }
