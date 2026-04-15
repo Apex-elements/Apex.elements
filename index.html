@@ -975,12 +975,44 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
       <div class="gdiv rev d2" style="margin:14px auto 0"></div>
     </div>
     <div class="story-grid" style="margin-top:56px">
-      <div class="rev">
-        <div class="story-img-wrap">
-          <img src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Ahmed%20Before.png" alt="Ahmed Al Shamsi daily routine with Memo Max" style="border-radius:var(--r-2xl);width:100%;height:460px;object-fit:cover;object-position:top" loading="lazy" width="400" height="460">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,16,31,.5),transparent);border-radius:var(--r-2xl)"></div>
-        
-        </div>
+     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px" class="routine-grid">
+
+  <div style="position:relative;border-radius:16px;overflow:hidden">
+    <img src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Ahmed1.png" 
+         alt="Morning coffee routine" 
+         style="width:100%;height:200px;object-fit:cover;display:block" loading="lazy">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,16,31,.85),transparent)"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 10px">
+      <div style="font-size:11px;color:var(--gold-400);font-weight:800">8:00 ص</div>
+      <div style="font-size:12px;color:#fff;font-weight:700">مع القهوة الصباحية</div>
+    </div>
+  </div>
+
+  <div style="position:relative;border-radius:16px;overflow:hidden">
+    <img src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Ahmed2.png" 
+         alt="Daily supplement routine" 
+         style="width:100%;height:200px;object-fit:cover;display:block" loading="lazy">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,16,31,.85),transparent)"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 10px">
+      <div style="font-size:11px;color:var(--gold-400);font-weight:800">الروتين اليومي</div>
+      <div style="font-size:12px;color:#fff;font-weight:700">2 كبسولة يومياً</div>
+    </div>
+  </div>
+
+  <div style="position:relative;border-radius:16px;overflow:hidden">
+    <img src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Ahmed3.png" 
+         alt="Productive work day" 
+         style="width:100%;height:200px;object-fit:cover;display:block" loading="lazy">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,16,31,.85),transparent)"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 10px">
+      <div style="font-size:11px;color:var(--gold-400);font-weight:800">طوال اليوم</div>
+      <div style="font-size:12px;color:#fff;font-weight:700">إنتاجية متواصلة</div>
+    </div>
+  </div>
+
+</div>
+
+      
       </div>
       <div class="rev d1">
         <p class="story-quote" data-i18n="storyQuote"></p>
@@ -991,7 +1023,7 @@ html[dir="ltr"] .plist li::before,.html[dir="ltr"] .slist li::before{float:left}
           <div class="sstep"><div class="sstep-num">3</div><div class="sstep-txt"><strong data-i18n="step3t"></strong><span data-i18n="step3d"></span></div></div>
         </div>
         <div class="story-person">
-          <img class="sp-avatar" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Avatar.JPG" alt="Ahmed Al Shamsi - Memo Max customer" loading="lazy" width="52" height="52">
+          <img class="sp-avatar" src="https://raw.githubusercontent.com/Apex-elements/Apex.elements/refs/heads/main/Avatar.JPG" alt="Ahmed Jameel - Memo Max customer" loading="lazy" width="52" height="52">
           <div>
             <div class="sp-name" data-i18n="storyName"></div>
             <div class="sp-title" data-i18n="storyRole"></div>
@@ -1698,11 +1730,11 @@ const T = {
     storyH2: 'كيف يبدأ أحمد يومه<br><span class="gold">بكفاءة لا تتوقف</span>'
    
     storyQuote:'"كنت أنسى أسماء زملائي في الاجتماعات. اليوم أدير فريقاً من 40 شخصاً بكفاءة تامة."',
-    storyText:'<strong style="color:var(--navy-900)">أحمد الشامسي، 34 سنة</strong> — مدير مشاريع في شركة عقارات كبرى بدبي. كان يعاني من إرهاق ذهني مزمن. في الاجتماعات كان يفقد خيط الأفكار. زملاؤه بدأوا يلاحظون. هو بدأ يخاف.',
+    storyText:'<strong style="color:var(--navy-900)">أحمد جميل، 34 سنة</strong> — مدير مشاريع في شركة عقارات كبرى بدبي. كان يعاني من إرهاق ذهني مزمن. في الاجتماعات كان يفقد خيط الأفكار. زملاؤه بدأوا يلاحظون. هو بدأ يخاف.',
     step1t:'الأسبوع الأول', step1d:'"شعرت بفرق في اليقظة الصباحية. توقفت عن القهوة الثانية تلقائياً."',
     step2t:'الأسبوع الثاني', step2d:'"دخلت في اجتماع 3 ساعات وخرجت بكامل تفاصيله في ذهني. لم يحدث هذا منذ سنوات."',
     step3t:'اليوم 30', step3d:'"حصلت على ترقية لم أكن أتوقعها. مديري قال إن أدائي تحسن بشكل ملحوظ."',
-    storyName:'أحمد الشامسي', storyRole:'مدير مشاريع — دبي',
+    storyName:'أحمد جميل', storyRole:'مدير مشاريع — دبي',
     verified:'عميل موثق', verified2:'✓ شراء مؤكد', rating:'تقييمه',
     sciH2:'كيف يعمل <span class="gold">Memo Max</span>؟',
     sciCaption:'"لم نخترع السحر — جمعنا أقوى ما أثبته العلم."',
@@ -1869,11 +1901,11 @@ story2CtaBtn:'اطلب الآن لمن تحب',
     storyH2: 'How Ahmed Starts His Day<br><span class="gold">With Unstoppable Efficiency</span>',
     
     storyQuote:'"I used to forget my colleagues\' names in meetings. Today I manage a team of 40 with full efficiency."',
-    storyText:'<strong style="color:var(--navy-900)">Ahmed Al Shamsi, 34</strong> — Project Manager at a major real estate firm in Dubai. He suffered from chronic mental fatigue. In meetings, he\'d lose his train of thought. His colleagues began to notice. He began to fear.',
+    storyText:'<strong style="color:var(--navy-900)">Ahmed Jameel, 34</strong> — Project Manager at a major real estate firm in Dubai. He suffered from chronic mental fatigue. In meetings, he\'d lose his train of thought. His colleagues began to notice. He began to fear.',
     step1t:'Week 1', step1d:'"I felt a difference in morning alertness. I naturally stopped needing a second coffee."',
     step2t:'Week 2', step2d:'"I sat through a 3-hour meeting and walked out with every detail in my head. That hadn\'t happened in years."',
     step3t:'Day 30', step3d:'"I got a promotion I wasn\'t expecting. My manager said my performance improved noticeably in one month."',
-    storyName:'Ahmed Al Shamsi', storyRole:'Project Manager — Dubai',
+    storyName:'Ahmed Jameel', storyRole:'Project Manager — Dubai',
     verified:'Verified Customer', verified2:'✓ Verified Purchase', rating:'His Rating',
     sciH2:'How Does <span class="gold">Memo Max</span> Work?',
     sciCaption:'"We didn\'t invent magic — we combined the most powerful findings of science."',
@@ -2446,6 +2478,13 @@ setInterval(updateShippingTimer, 1000);
 <style>
 @keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
 </style>
+ <!-- Ahmed Story -->
+<style>
+@media(max-width:600px){
+  .routine-grid{ grid-template-columns:1fr !important; }
+  .routine-grid > div img{ height:160px !important; }
+}
+</style>            
 
 </body>
 </html>
